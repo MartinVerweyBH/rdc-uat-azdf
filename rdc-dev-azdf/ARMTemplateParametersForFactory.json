@@ -1,0 +1,96 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "rdc-dev-azdf"
+		},
+		"AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"azdl_ebs_gl_codecombinations_accountKey": {
+			"value": ""
+		},
+		"lsEBS_connectionString": {
+			"value": ""
+		},
+		"lsEBS_PROD_connectionString": {
+			"value": ""
+		},
+		"lsEBS_UAT_connectionString": {
+			"value": ""
+		},
+		"lsMATRIX_Postgres_connectionString": {
+			"value": ""
+		},
+		"lsMRTG_connectionString": {
+			"value": ""
+		},
+		"lsMRTG_Postgres_connectionString": {
+			"value": ""
+		},
+		"lsMTRXUATC_connectionString": {
+			"value": ""
+		},
+		"lsMTRXUATP_connectionString": {
+			"value": ""
+		},
+		"lsOAC_password": {
+			"value": ""
+		},
+		"lsOACPROD_connectionString": {
+			"value": ""
+		},
+		"lsSFDC_password": {
+			"value": ""
+		},
+		"lsSFDC_securityToken": {
+			"value": ""
+		},
+		"ls_dbStageRDC_connectionString": {
+			"value": ""
+		},
+		"ls_dwStageOAC_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://blobdevstorgen01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://devls.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_tenant": {
+			"value": "be8c0789-cb3d-4f3a-94d7-7c9301ca4803"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId": {
+			"value": "a0c1c7fd-38b0-422f-8a34-8d9d015a9b00"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName": {
+			"value": "rdc-dev-rg"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://graph.microsoft.com/"
+		},
+		"RestService1_properties_typeProperties_aadResourceId": {
+			"value": "https://management.core.windows.net"
+		},
+		"azdl_ebs_gl_codecombinations_properties_typeProperties_url": {
+			"value": "https://blobdevstorgen01.dfs.core.windows.net"
+		},
+		"lsOAC_properties_typeProperties_host": {
+			"value": "129.150.93.89"
+		},
+		"lsOAC_properties_typeProperties_username": {
+			"value": "oacprod"
+		},
+		"lsSFDC_properties_typeProperties_environmentUrl": {
+			"value": "https://ragingwire.my.salesforce.com"
+		},
+		"lsSFDC_properties_typeProperties_username": {
+			"value": "svc_powerbisfdc@ragingwire.com"
+		}
+	}
+}

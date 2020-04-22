@@ -1,0 +1,265 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "rdc-dev-azdf"
+		},
+		"AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
+		},
+		"AzureDataLakeStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage'"
+		},
+		"azdl_ebs_gl_codecombinations_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'azdl_ebs_gl_codecombinations'"
+		},
+		"lsEBS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsEBS'"
+		},
+		"lsEBS_PROD_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsEBS_PROD'"
+		},
+		"lsEBS_UAT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsEBS_UAT'"
+		},
+		"lsMATRIX_Postgres_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsMATRIX_Postgres'"
+		},
+		"lsMRTG_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsMRTG'"
+		},
+		"lsMRTG_Postgres_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsMRTG_Postgres'"
+		},
+		"lsMTRXUATC_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsMTRXUATC'"
+		},
+		"lsMTRXUATP_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsMTRXUATP'"
+		},
+		"lsOAC_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lsOAC'"
+		},
+		"lsOACPROD_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsOACPROD'"
+		},
+		"lsSFDC_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lsSFDC'"
+		},
+		"lsSFDC_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'lsSFDC'"
+		},
+		"ls_dbStageRDC_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_dbStageRDC'"
+		},
+		"ls_dwStageOAC_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_dwStageOAC'"
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://blobdevstorgen01.dfs.core.windows.net"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://devls.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "be8c0789-cb3d-4f3a-94d7-7c9301ca4803"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "a0c1c7fd-38b0-422f-8a34-8d9d015a9b00"
+		},
+		"AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "rdc-dev-rg"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://graph.microsoft.com/"
+		},
+		"RestService1_properties_typeProperties_aadResourceId": {
+			"type": "string",
+			"defaultValue": "https://management.core.windows.net"
+		},
+		"azdl_ebs_gl_codecombinations_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://blobdevstorgen01.dfs.core.windows.net"
+		},
+		"lsOAC_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "129.150.93.89"
+		},
+		"lsOAC_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "oacprod"
+		},
+		"lsSFDC_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://ragingwire.my.salesforce.com"
+		},
+		"lsSFDC_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "svc_powerbisfdc@ragingwire.com"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage_connectionString": {
+						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					},
+					"AzureDataLakeStorage_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage_accountKey')]"
+					},
+					"azdl_ebs_gl_codecombinations_accountKey": {
+						"value": "[parameters('azdl_ebs_gl_codecombinations_accountKey')]"
+					},
+					"lsOACPROD_connectionString": {
+						"value": "[parameters('lsOACPROD_connectionString')]"
+					},
+					"ls_dbStageRDC_connectionString": {
+						"value": "[parameters('ls_dbStageRDC_connectionString')]"
+					},
+					"ls_dwStageOAC_connectionString": {
+						"value": "[parameters('ls_dwStageOAC_connectionString')]"
+					},
+					"lsEBS_connectionString": {
+						"value": "[parameters('lsEBS_connectionString')]"
+					},
+					"lsEBS_PROD_connectionString": {
+						"value": "[parameters('lsEBS_PROD_connectionString')]"
+					},
+					"lsEBS_UAT_connectionString": {
+						"value": "[parameters('lsEBS_UAT_connectionString')]"
+					},
+					"lsMATRIX_Postgres_connectionString": {
+						"value": "[parameters('lsMATRIX_Postgres_connectionString')]"
+					},
+					"lsMRTG_connectionString": {
+						"value": "[parameters('lsMRTG_connectionString')]"
+					},
+					"lsMRTG_Postgres_connectionString": {
+						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
+					},
+					"lsMTRXUATC_connectionString": {
+						"value": "[parameters('lsMTRXUATC_connectionString')]"
+					},
+					"lsMTRXUATP_connectionString": {
+						"value": "[parameters('lsMTRXUATP_connectionString')]"
+					},
+					"lsOAC_password": {
+						"value": "[parameters('lsOAC_password')]"
+					},
+					"AzureDataLakeStorage_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"AzureDataLakeStoreGen1_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_tenant')]"
+					},
+					"AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId')]"
+					},
+					"AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"RestService1_properties_typeProperties_aadResourceId": {
+						"value": "[parameters('RestService1_properties_typeProperties_aadResourceId')]"
+					},
+					"azdl_ebs_gl_codecombinations_properties_typeProperties_url": {
+						"value": "[parameters('azdl_ebs_gl_codecombinations_properties_typeProperties_url')]"
+					},
+					"lsOAC_properties_typeProperties_host": {
+						"value": "[parameters('lsOAC_properties_typeProperties_host')]"
+					},
+					"lsOAC_properties_typeProperties_username": {
+						"value": "[parameters('lsOAC_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"lsSFDC_password": {
+						"value": "[parameters('lsSFDC_password')]"
+					},
+					"lsSFDC_securityToken": {
+						"value": "[parameters('lsSFDC_securityToken')]"
+					},
+					"lsSFDC_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]"
+					},
+					"lsSFDC_properties_typeProperties_username": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
+		}
+	]
+}

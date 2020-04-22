@@ -1,0 +1,59 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "rdc-dev-azdf"
+		},
+		"lsSFDC_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lsSFDC'"
+		},
+		"lsSFDC_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'lsSFDC'"
+		},
+		"lsSFDC_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://ragingwire.my.salesforce.com"
+		},
+		"lsSFDC_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "svc_powerbisfdc@ragingwire.com"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/lsSFDC')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Link Service Sales Force Dot Com",
+				"annotations": [],
+				"type": "Salesforce",
+				"typeProperties": {
+					"environmentUrl": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]",
+					"username": "[parameters('lsSFDC_properties_typeProperties_username')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('lsSFDC_password')]"
+					},
+					"securityToken": {
+						"type": "SecureString",
+						"value": "[parameters('lsSFDC_securityToken')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "rdcir01",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
