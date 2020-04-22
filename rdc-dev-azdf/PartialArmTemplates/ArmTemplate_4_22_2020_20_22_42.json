@@ -6,62 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "rdc-dev-azdf"
-		},
-		"lsEBS_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsEBS'"
-		},
-		"lsEBS_PROD_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsEBS_PROD'"
-		},
-		"lsEBS_UAT_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsEBS_UAT'"
-		},
-		"lsMATRIX_Postgres_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMATRIX_Postgres'"
-		},
-		"lsMRTG_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMRTG'"
-		},
-		"lsMRTG_Postgres_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMRTG_Postgres'"
-		},
-		"lsOACPROD_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsOACPROD'"
-		},
-		"lsSFDC_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'lsSFDC'"
-		},
-		"lsSFDC_securityToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'securityToken' of 'lsSFDC'"
-		},
-		"ls_dwStageOAC_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_dwStageOAC'"
-		},
-		"RestService1_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://graph.microsoft.com/"
-		},
-		"RestService1_properties_typeProperties_aadResourceId": {
-			"type": "string",
-			"defaultValue": "https://management.core.windows.net"
-		},
-		"lsSFDC_properties_typeProperties_environmentUrl": {
-			"type": "string",
-			"defaultValue": "https://ragingwire.my.salesforce.com"
-		},
-		"lsSFDC_properties_typeProperties_username": {
-			"type": "string",
-			"defaultValue": "svc_powerbisfdc@ragingwire.com"
 		}
 	},
 	"variables": {
@@ -324,9 +268,7 @@
 					"table": "BIA_ANALYTICS_CONTRACTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AP_CHECKS_V')]",
@@ -813,9 +755,7 @@
 					"table": "BIA_AP_CHECKS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AP_DEFERMENTS_V')]",
@@ -1128,9 +1068,7 @@
 					"table": "BIA_AP_DEFERMENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AP_INVOICE_DIST_V')]",
@@ -1387,9 +1325,7 @@
 					"table": "BIA_AP_INVOICE_DIST_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AP_INVOICE_HEADERS_V')]",
@@ -1649,9 +1585,7 @@
 					"table": "BIA_AP_INVOICE_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AP_INVOICE_LINES_V')]",
@@ -1852,9 +1786,7 @@
 					"table": "BIA_AP_INVOICE_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AP_PAYMENTS_V')]",
@@ -2134,9 +2066,7 @@
 					"table": "BIA_AP_PAYMENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AP_PO_DISTRIBUTION_V')]",
@@ -2519,9 +2449,7 @@
 					"table": "BIA_AP_PO_DISTRIBUTION_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_ADJUSTMENTS_V')]",
@@ -2630,9 +2558,7 @@
 					"table": "BIA_AR_ADJUSTMENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_CASH_RECEIPTS_V')]",
@@ -2764,9 +2690,7 @@
 					"table": "BIA_AR_CASH_RECEIPTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_CUSTOMER_INVOICE_V')]",
@@ -3245,9 +3169,7 @@
 					"table": "BIA_AR_CUSTOMER_INVOICE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_CUSTOMER_RECEIPTS_V')]",
@@ -3419,9 +3341,7 @@
 					"table": "BIA_AR_CUSTOMER_RECEIPTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_CUSTOMER_TRX_DIST_V')]",
@@ -3593,9 +3513,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_DIST_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_CUSTOMER_TRX_HDR_V')]",
@@ -3916,9 +3834,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_HDR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_CUSTOMER_TRX_LINES_V')]",
@@ -4102,9 +4018,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_CUSTOMER_TRX_V')]",
@@ -4208,9 +4122,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_PAYMENT_SCHEDULES_V')]",
@@ -4374,9 +4286,7 @@
 					"table": "BIA_AR_PAYMENT_SCHEDULES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_AR_RECEIVABLE_APPS_V')]",
@@ -4487,9 +4397,7 @@
 					"table": "BIA_AR_RECEIVABLE_APPS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_CUSTOMER_ACCOUNTS_V')]",
@@ -4551,9 +4459,7 @@
 					"table": "BIA_CUSTOMER_ACCOUNTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_CUSTOMER_REV_V')]",
@@ -4716,9 +4622,7 @@
 					"table": "BIA_CUSTOMER_REV_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_CUST_SITES_V')]",
@@ -4905,9 +4809,7 @@
 					"table": "BIA_CUST_SITES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EMPLOYEES_V')]",
@@ -5006,9 +4908,7 @@
 					"table": "BIA_EMPLOYEES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EMPLOYEE_LICENSES_V')]",
@@ -5169,9 +5069,7 @@
 					"table": "BIA_EMPLOYEE_LICENSES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EMPLOYEE_PERSONNEL_V')]",
@@ -5540,9 +5438,7 @@
 					"table": "BIA_EMPLOYEE_PERSONNEL_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_ENCL_TAKW')]",
@@ -5583,9 +5479,7 @@
 					"table": "BIA_ENCL_TAKW"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_ENCL_TKWH')]",
@@ -5626,9 +5520,7 @@
 					"table": "BIA_ENCL_TKWH"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_ENCL_TSQFT')]",
@@ -5669,9 +5561,7 @@
 					"table": "BIA_ENCL_TSQFT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EXPENDITURES_V')]",
@@ -5777,9 +5667,7 @@
 					"table": "BIA_EXPENDITURES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EXPENDITURE_ACCUM_V')]",
@@ -6110,9 +5998,7 @@
 					"table": "BIA_EXPENDITURE_ACCUM_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EXPENDITURE_COMMENTS')]",
@@ -6175,9 +6061,7 @@
 					"table": "BIA_EXPENDITURE_COMMENTS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EXPENDITURE_DIST_LINES_V')]",
@@ -6363,9 +6247,7 @@
 					"table": "BIA_EXPENDITURE_DIST_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EXPENDITURE_ITEMS_V')]",
@@ -6519,9 +6401,7 @@
 					"table": "BIA_EXPENDITURE_ITEMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_EXPENDITURE_TYPES_V')]",
@@ -6612,9 +6492,7 @@
 					"table": "BIA_EXPENDITURE_TYPES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_FA_DEPRN_PERIODS_V')]",
@@ -6711,9 +6589,7 @@
 					"table": "BIA_FA_DEPRN_PERIODS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_FA_DEPRN_SUMMARY_V')]",
@@ -6860,9 +6736,7 @@
 					"table": "BIA_FA_DEPRN_SUMMARY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_FA_DESCRIPTION_V')]",
@@ -7098,9 +6972,7 @@
 					"table": "BIA_FA_DESCRIPTION_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_FLEX_RWT_PROJECT')]",
@@ -7162,9 +7034,7 @@
 					"table": "BIA_FLEX_RWT_PROJECT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_ACCOUNTS_V')]",
@@ -7214,9 +7084,7 @@
 					"table": "BIA_GL_ACCOUNTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_BATCHES_R11V')]",
@@ -7315,9 +7183,7 @@
 					"table": "BIA_GL_BATCHES_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_BATCHES_V')]",
@@ -7416,9 +7282,7 @@
 					"table": "BIA_GL_BATCHES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_CAMP_CATEGORY_V')]",
@@ -7478,9 +7342,7 @@
 					"table": "BIA_GL_CAMP_CATEGORY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_CAMP_ENCL_BILLING_V')]",
@@ -7708,9 +7570,7 @@
 					"table": "BIA_GL_CAMP_ENCL_BILLING_V_xxx"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_CODE_COMBINATIONS_R11V')]",
@@ -7813,9 +7673,7 @@
 					"table": "BIA_GL_CODE_COMBINATIONS_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_CODE_COMBINATIONS_V')]",
@@ -7934,61 +7792,7 @@
 					"table": "BIA_GL_CODE_COMBINATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_DEPARTMENTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Destination: Azure OAC\nSchema: OACPROD\nTable: BIA_GL_DEPARTMENTS_V",
-				"linkedServiceName": {
-					"referenceName": "ls_dwStageOAC",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Destinations - AOAC"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "SEGMENT2",
-						"type": "varchar"
-					},
-					{
-						"name": "SEG2_DESC",
-						"type": "varchar"
-					},
-					{
-						"name": "DSYS_INSTANCE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_PROCESS_ID",
-						"type": "decimal",
-						"precision": 12,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_BATCH_ID",
-						"type": "decimal",
-						"precision": 30,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_GL_DEPARTMENTS_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_HEADERS_R11V')]",
@@ -8091,9 +7895,7 @@
 					"table": "BIA_GL_HEADERS_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_HEADERS_V')]",
@@ -8200,9 +8002,7 @@
 					"table": "BIA_GL_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_JOURNALS_R11V')]",
@@ -8314,9 +8114,7 @@
 					"table": "BIA_GL_JOURNALS_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_LINES_AR_V')]",
@@ -8425,9 +8223,7 @@
 					"table": "BIA_GL_LINES_AR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_LINES_CAMP_V')]",
@@ -8554,9 +8350,7 @@
 					"table": "BIA_GL_LINES_CAMP_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_LINES_R11V')]",
@@ -8673,9 +8467,7 @@
 					"table": "BIA_GL_LINES_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_LINES_V')]",
@@ -8826,9 +8618,7 @@
 					"table": "BIA_GL_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_LOCATIONS_V')]",
@@ -8878,9 +8668,7 @@
 					"table": "BIA_GL_LOCATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_PERIODS_R11V')]",
@@ -9044,9 +8832,7 @@
 					"table": "BIA_GL_PERIODS_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_PERIODS_V')]",
@@ -9218,9 +9004,7 @@
 					"table": "BIA_GL_PERIODS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_SOB_R11V')]",
@@ -9291,9 +9075,7 @@
 					"table": "BIA_GL_SOB_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_SOB_V')]",
@@ -9364,9 +9146,7 @@
 					"table": "BIA_GL_SOB_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_ITEMS_CODES_V')]",
@@ -9479,9 +9259,7 @@
 					"table": "BIA_ITEMS_CODES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_LINK_PO_REQ_V')]",
@@ -9540,9 +9318,7 @@
 					"table": "BIA_LINK_PO_REQ_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_MRTG_BILLING_V')]",
@@ -9652,9 +9428,7 @@
 					"table": "BIA_MRTG_BILLING_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_MRTG_BILLING_V2')]",
@@ -9765,9 +9539,7 @@
 					"table": "BIA_MRTG_BILLING_V2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_OAC_PAYABLES_V')]",
@@ -10050,9 +9822,7 @@
 					"table": "BIA_OAC_PAYABLES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_OFFICE_TSQFT')]",
@@ -10093,9 +9863,7 @@
 					"table": "BIA_OFFICE_TSQFT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_ORDER_LINE_TYPE_V')]",
@@ -10156,9 +9924,7 @@
 					"table": "BIA_ORDER_LINE_TYPE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_ORGANIZATIONS_V')]",
@@ -10283,9 +10049,7 @@
 					"table": "BIA_ORGANIZATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_ORG_LOCATIONS_V')]",
@@ -10394,9 +10158,7 @@
 					"table": "BIA_ORG_LOCATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PA_BUDGET_VERSIONS_V')]",
@@ -10485,9 +10247,7 @@
 					"table": "BIA_PA_BUDGET_VERSIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PA_PROJECT_CUSTOMERS')]",
@@ -10656,9 +10416,7 @@
 					"table": "BIA_PA_PROJECT_CUSTOMERS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PA_TASKS_V')]",
@@ -10759,9 +10517,7 @@
 					"table": "BIA_PA_TASKS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_POR_APPROVAL_STATUS_V')]",
@@ -10855,9 +10611,7 @@
 					"table": "BIA_POR_APPROVAL_STATUS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_POWER_CONTRACT_LINES')]",
@@ -10972,9 +10726,7 @@
 					"table": "BIA_POWER_CONTRACT_LINES"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_POWER_KW_CAGE_MON_V')]",
@@ -11057,9 +10809,7 @@
 					"table": "BIA_POWER_KW_CAGE_MON_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_POWER_KW_CAGE_V')]",
@@ -11154,9 +10904,7 @@
 					"table": "BIA_POWER_KW_CAGE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_POWER_KW_CONTRACT_LINE_V')]",
@@ -11339,9 +11087,7 @@
 					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_POWER_KW_ENCL_MONTH_V')]",
@@ -11503,9 +11249,7 @@
 					"table": "BIA_POWER_KW_ENCL_MONTH_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_ACTION_HISTORY_V')]",
@@ -11617,9 +11361,7 @@
 					"table": "BIA_PO_ACTION_HISTORY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_DISTRIBUTIONS_BRDG')]",
@@ -11672,9 +11414,7 @@
 					"table": "BIA_PO_DISTRIBUTIONS_BRDG"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_DISTRIBUTIONS_V')]",
@@ -11901,9 +11641,7 @@
 					"table": "BIA_PO_DISTRIBUTIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_HEADERS_ARCHIVE_V')]",
@@ -12016,9 +11754,7 @@
 					"table": "BIA_PO_HEADERS_ARCHIVE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_HEADERS_V')]",
@@ -12261,9 +11997,7 @@
 					"table": "BIA_PO_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_LINES_ARCHIVE_V')]",
@@ -12460,9 +12194,7 @@
 					"table": "BIA_PO_LINES_ARCHIVE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_LINES_V')]",
@@ -12583,9 +12315,7 @@
 					"table": "BIA_PO_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_REQUISITION_DIST_V')]",
@@ -12844,9 +12574,7 @@
 					"table": "BIA_PO_REQUISITION_DIST_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_REQUISITION_HEADERS_V')]",
@@ -12999,9 +12727,7 @@
 					"table": "BIA_PO_REQUISITION_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_REQUISITION_LINE_V')]",
@@ -13164,9 +12890,7 @@
 					"table": "BIA_PO_REQUISITION_LINE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PO_SHIPMENTS_V')]",
@@ -13303,9 +13027,7 @@
 					"table": "BIA_PO_SHIPMENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PRICE_LISTS_V')]",
@@ -13399,9 +13121,7 @@
 					"table": "BIA_PRICE_LISTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PRICE_LIST_ITEMS_V')]",
@@ -13512,9 +13232,7 @@
 					"table": "BIA_PRICE_LIST_ITEMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PROJECTS_CIP_V')]",
@@ -13742,9 +13460,7 @@
 					"table": "BIA_PROJECTS_CIP_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_PROJECTS_V')]",
@@ -13900,9 +13616,7 @@
 					"table": "BIA_PROJECTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_QUOTE_HEADERS_V')]",
@@ -14347,9 +14061,7 @@
 					"table": "BIA_QUOTE_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_QUOTE_LINES_V')]",
@@ -14740,9 +14452,7 @@
 					"table": "BIA_QUOTE_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_QUOTE_LINES_V2')]",
@@ -14977,9 +14687,7 @@
 					"table": "BIA_QUOTE_LINES_V2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SALES_TRANS_TYPES_V')]",
@@ -15071,9 +14779,7 @@
 					"table": "BIA_SALES_TRANS_TYPES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SERVICE_CONTRACTS_V')]",
@@ -15258,9 +14964,7 @@
 					"table": "BIA_SERVICE_CONTRACTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SERVICE_CONTRACT_LINES_V')]",
@@ -15616,9 +15320,7 @@
 					"table": "BIA_SERVICE_CONTRACT_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SERVICE_CONTRACT_STRM1_V')]",
@@ -16022,9 +15724,7 @@
 					"table": "BIA_SERVICE_CONTRACT_STRM1_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SERVICE_CONTRACT_STRMS_V')]",
@@ -16135,9 +15835,7 @@
 					"table": "BIA_SERVICE_CONTRACT_STRMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SF_BUILT_TMP')]",
@@ -16182,9 +15880,7 @@
 					"table": "BIA_SF_BUILT_TMP"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SYSTEM_ITEMS_LINK_V')]",
@@ -16273,9 +15969,7 @@
 					"table": "BIA_SYSTEM_ITEMS_LINK_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SYSTEM_ITEMS_ORG_V')]",
@@ -16434,9 +16128,7 @@
 					"table": "BIA_SYSTEM_ITEMS_ORG_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_SYSTEM_ITEMS_V')]",
@@ -16583,9 +16275,7 @@
 					"table": "BIA_SYSTEM_ITEMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_VENDORS_V')]",
@@ -16730,9 +16420,7 @@
 					"table": "BIA_VENDORS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_VENDOR_SITES_V')]",
@@ -16866,9 +16554,7 @@
 					"table": "BIA_VENDOR_SITES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_APPS_V')]",
@@ -16920,9 +16606,7 @@
 					"table": "BIA_XLA_AE_APPS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_EVENTS_V')]",
@@ -16995,9 +16679,7 @@
 					"table": "BIA_XLA_AE_EVENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_HEADERS_V')]",
@@ -17091,9 +16773,7 @@
 					"table": "BIA_XLA_AE_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_LINES_V')]",
@@ -17255,9 +16935,7 @@
 					"table": "BIA_XLA_AE_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_LINK_V')]",
@@ -17393,9 +17071,7 @@
 					"table": "BIA_XLA_AE_LINK_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_AE_TRANS_V')]",
@@ -17492,9 +17168,7 @@
 					"table": "BIA_XLA_AE_TRANS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_GL_AP_V')]",
@@ -17649,9 +17323,7 @@
 					"table": "BIA_XLA_GL_AP_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_XLA_GL_AR_V')]",
@@ -17772,9 +17444,7 @@
 					"table": "BIA_XLA_GL_AR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BICS_AP_INVOICE')]",
@@ -18119,9 +17789,7 @@
 					"table": "BICS_AP_INVOICE"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_dwStageOAC')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AP_PAYMENTS_V')]",
@@ -18144,9 +17812,7 @@
 					"table": "BIA_AP_PAYMENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AP_PO_DISTRIBUTION_V')]",
@@ -18169,9 +17835,7 @@
 					"table": "BIA_AP_PO_DISTRIBUTION_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_ADJUSTMENTS_V')]",
@@ -18194,9 +17858,7 @@
 					"table": "BIA_AR_ADJUSTMENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_AGING_FACT')]",
@@ -18219,9 +17881,7 @@
 					"table": "BIA_AR_AGING_FACT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CASH_RECEIPTS_V')]",
@@ -18244,9 +17904,7 @@
 					"table": "BIA_AR_CASH_RECEIPTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_INVOICE_V')]",
@@ -18269,9 +17927,7 @@
 					"table": "BIA_AR_CUSTOMER_INVOICE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_RECEIPTS_V')]",
@@ -18294,9 +17950,7 @@
 					"table": "BIA_AR_CUSTOMER_RECEIPTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_DIST_V')]",
@@ -18319,9 +17973,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_DIST_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_HDR_V')]",
@@ -18344,9 +17996,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_HDR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_LINES_V')]",
@@ -18369,9 +18019,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_V')]",
@@ -18394,9 +18042,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_PAYMENT_SCHEDULES_V')]",
@@ -18419,9 +18065,7 @@
 					"table": "BIA_AR_PAYMENT_SCHEDULES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_RECEIVABLE_APPS_V')]",
@@ -18444,9 +18088,7 @@
 					"table": "BIA_AR_RECEIVABLE_APPS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_CUSTOMER_ACCOUNTS_V')]",
@@ -18469,9 +18111,7 @@
 					"table": "BIA_CUST_SITES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_CUSTOMER_REV_V')]",
@@ -18494,9 +18134,7 @@
 					"table": "BIA_CUSTOMER_REV_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_CUST_SITES_V')]",
@@ -18519,9 +18157,7 @@
 					"table": "BIA_CUST_SITES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EMPLOYEES_V')]",
@@ -18544,9 +18180,7 @@
 					"table": "BIA_EMPLOYEES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EMPLOYEE_LICENSES_V')]",
@@ -18569,9 +18203,7 @@
 					"table": "BIA_EMPLOYEE_LICENSES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EMPLOYEE_PERSONNEL_V')]",
@@ -18594,9 +18226,7 @@
 					"table": "BIA_EMPLOYEE_PERSONNEL_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EXPENDITURES_V')]",
@@ -18619,9 +18249,7 @@
 					"table": "BIA_EXPENDITURES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EXPENDITURE_ACCUM_V')]",
@@ -18644,9 +18272,7 @@
 					"table": "BIA_EXPENDITURE_ACCUM_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EXPENDITURE_COMMENTS')]",
@@ -18669,9 +18295,7 @@
 					"table": "BIA_EXPENDITURE_COMMENTS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EXPENDITURE_DIST_LINES_V')]",
@@ -18694,9 +18318,7 @@
 					"table": "BIA_EXPENDITURE_DIST_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EXPENDITURE_ITEMS_V')]",
@@ -18719,9 +18341,7 @@
 					"table": "BIA_EXPENDITURE_ITEMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EXPENDITURE_TYPES_V')]",
@@ -18744,9 +18364,7 @@
 					"table": "BIA_EXPENDITURE_TYPES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_FA_DEPRN_PERIODS_V')]",
@@ -18769,9 +18387,7 @@
 					"table": "BIA_FA_DEPRN_PERIODS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_FA_DEPRN_SUMMARY_V')]",
@@ -18794,9 +18410,7 @@
 					"table": "BIA_FA_DEPRN_SUMMARY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_FA_DESCRIPTION_V')]",
@@ -18819,9 +18433,7 @@
 					"table": "BIA_FA_DESCRIPTION_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_FLEX_RWT_PROJECT')]",
@@ -18844,9 +18456,7 @@
 					"table": "BIA_FLEX_RWT_PROJECT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_ACCOUNTS_V')]",
@@ -18869,9 +18479,7 @@
 					"table": "BIA_GL_ACCOUNTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_BATCHES_R11V')]",
@@ -18894,9 +18502,7 @@
 					"table": "BIA_GL_BATCHES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_BATCHES_V')]",
@@ -18919,9 +18525,7 @@
 					"table": "BIA_GL_BATCHES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_CAMP_CATEGORY_V')]",
@@ -18944,9 +18548,7 @@
 					"table": "BIA_GL_CAMP_CATEGORY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_CODE_COMBINATIONS_R11V')]",
@@ -18969,9 +18571,7 @@
 					"table": "BIA_GL_CODE_COMBINATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_CODE_COMBINATIONS_V')]",
@@ -18994,34 +18594,7 @@
 					"table": "BIA_GL_CODE_COMBINATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_DEPARTMENTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BIA_GL_DEPARTMENTS_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_GL_DEPARTMENTS_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_HEADERS_V')]",
@@ -19044,9 +18617,7 @@
 					"table": "BIA_GL_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_LINES_AR_V')]",
@@ -19069,9 +18640,7 @@
 					"table": "BIA_GL_LINES_AR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_LINES_CAMP_V')]",
@@ -19094,9 +18663,7 @@
 					"table": "BIA_GL_LINES_CAMP_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS_PROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_LINES_V')]",
@@ -19119,9 +18686,7 @@
 					"table": "BIA_GL_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_LOCATIONS_V')]",
@@ -19144,9 +18709,7 @@
 					"table": "BIA_GL_LOCATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_PERIODS_R11V')]",
@@ -19169,9 +18732,7 @@
 					"table": "BIA_GL_PERIODS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_PERIODS_V')]",
@@ -19194,9 +18755,7 @@
 					"table": "BIA_GL_PERIODS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_SOB_R11V')]",
@@ -19219,9 +18778,7 @@
 					"table": "BIA_GL_SOB_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_GL_SOB_V')]",
@@ -19244,9 +18801,7 @@
 					"table": "BIA_GL_SOB_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_ITEMS_CODES_V')]",
@@ -19269,9 +18824,7 @@
 					"table": "BIA_ITEMS_CODES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_LINK_PO_REQ_V')]",
@@ -19294,9 +18847,7 @@
 					"table": "BIA_LINK_PO_REQ_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_OAC_PAYABLES_V')]",
@@ -19319,9 +18870,7 @@
 					"table": "BIA_OAC_PAYABLES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_ORDER_LINE_TYPE_V')]",
@@ -19344,9 +18893,7 @@
 					"table": "BIA_ORDER_LINE_TYPE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_ORGANIZATIONS_V')]",
@@ -19369,9 +18916,7 @@
 					"table": "BIA_ORGANIZATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_ORG_LOCATIONS_V')]",
@@ -19394,9 +18939,7 @@
 					"table": "BIA_ORG_LOCATIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_BUDGET_VERSIONS_V')]",
@@ -19419,9 +18962,7 @@
 					"table": "BIA_PA_BUDGET_VERSIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_PROJECT_CUSTOMERS')]",
@@ -19444,9 +18985,7 @@
 					"table": "BIA_PA_PROJECT_CUSTOMERS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_TASKS_V')]",
@@ -19469,9 +19008,7 @@
 					"table": "BIA_PA_TASKS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POR_APPROVAL_STATUS_V')]",
@@ -19494,9 +19031,7 @@
 					"table": "BIA_POR_APPROVAL_STATUS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_CAGE_MON_V')]",
@@ -19519,9 +19054,7 @@
 					"table": "BIA_POWER_KW_CAGE_MON_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_CONTRACT_LINE_V')]",
@@ -19544,9 +19077,7 @@
 					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS_PROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_ENCL_MONTH_V')]",
@@ -19568,9 +19099,7 @@
 					"table": "BIA_POWER_KW_ENCL_MONTH_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS_PROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_ACTION_HISTORY_V')]",
@@ -19593,9 +19122,7 @@
 					"table": "BIA_PO_ACTION_HISTORY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_BRDG')]",
@@ -19618,9 +19145,7 @@
 					"table": "BIA_PO_DISTRIBUTIONS_BRDG"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_V')]",
@@ -19643,9 +19168,7 @@
 					"table": "BIA_PO_DISTRIBUTIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_ARCHIVE_V')]",
@@ -19668,9 +19191,7 @@
 					"table": "BIA_PO_HEADERS_ARCHIVE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_V')]",
@@ -19693,9 +19214,7 @@
 					"table": "BIA_PO_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_ARCHIVE_V')]",
@@ -19718,9 +19237,7 @@
 					"table": "BIA_PO_LINES_ARCHIVE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_V')]",
@@ -19743,9 +19260,7 @@
 					"table": "BIA_PO_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_DIST_V')]",
@@ -19768,9 +19283,7 @@
 					"table": "BIA_PO_REQUISITION_DIST_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_HEADERS_V')]",
@@ -19793,9 +19306,7 @@
 					"table": "BIA_PO_REQUISITION_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_LINE_V')]",
@@ -19818,9 +19329,7 @@
 					"table": "BIA_PO_REQUISITION_LINE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_SHIPMENTS_V')]",
@@ -19843,9 +19352,7 @@
 					"table": "BIA_PO_SHIPMENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LISTS_V')]",
@@ -19868,9 +19375,7 @@
 					"table": "BIA_PRICE_LISTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LIST_ITEMS_V')]",
@@ -19893,9 +19398,7 @@
 					"table": "BIA_PRICE_LIST_ITEMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PROJECTS_CIP_V')]",
@@ -19918,9 +19421,7 @@
 					"table": "BIA_PROJECTS_CIP_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PROJECTS_V')]",
@@ -19943,9 +19444,7 @@
 					"table": "BIA_PROJECTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_HEADERS_V')]",
@@ -19968,9 +19467,7 @@
 					"table": "BIA_QUOTE_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_LINES_V')]",
@@ -19993,9 +19490,7 @@
 					"table": "BIA_QUOTE_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_LINES_V2')]",
@@ -20018,9 +19513,7 @@
 					"table": "BIA_QUOTE_LINES_V2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_REV_CATEGORY_ITEMS_V')]",
@@ -20043,9 +19536,7 @@
 					"table": "BIA_REV_CATEGORY_ITEMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_REV_CATEGORY_V')]",
@@ -20068,9 +19559,7 @@
 					"table": "BIA_REV_CATEGORY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_HEADERS_V')]",
@@ -20093,9 +19582,7 @@
 					"table": "BIA_SALES_ORDER_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_LINES_V')]",
@@ -20118,9 +19605,7 @@
 					"table": "BIA_SALES_ORDER_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_LINES_V2')]",
@@ -20143,9 +19628,7 @@
 					"table": "BIA_SALES_ORDER_LINES_V2"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_TYPES_V')]",
@@ -20168,9 +19651,7 @@
 					"table": "BIA_SALES_ORDER_TYPES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_TRANS_TYPES_V')]",
@@ -20193,9 +19674,7 @@
 					"table": "BIA_SALES_TRANS_TYPES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACTS_V')]",
@@ -20218,9 +19697,7 @@
 					"table": "BIA_SERVICE_CONTRACTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACT_LINES_V')]",
@@ -20243,9 +19720,7 @@
 					"table": "BIA_SERVICE_CONTRACT_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACT_STRM1_V')]",
@@ -20268,9 +19743,7 @@
 					"table": "BIA_SERVICE_CONTRACT_STRM1_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACT_STRMS_V')]",
@@ -20293,9 +19766,7 @@
 					"table": "BIA_SERVICE_CONTRACT_STRMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SYSTEM_ITEMS_LINK_V')]",
@@ -20318,9 +19789,7 @@
 					"table": "BIA_SYSTEM_ITEMS_LINK_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SYSTEM_ITEMS_ORG_V')]",
@@ -20343,9 +19812,7 @@
 					"table": "BIA_SYSTEM_ITEMS_ORG_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SYSTEM_ITEMS_V')]",
@@ -20368,9 +19835,7 @@
 					"table": "BIA_SYSTEM_ITEMS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_VENDORS_V')]",
@@ -20393,9 +19858,7 @@
 					"table": "BIA_VENDORS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_VENDOR_SITES_V')]",
@@ -20418,9 +19881,7 @@
 					"table": "BIA_VENDOR_SITES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_AE_APPS_V')]",
@@ -20443,9 +19904,7 @@
 					"table": "BIA_XLA_AE_APPS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_AE_EVENTS_V')]",
@@ -20468,9 +19927,7 @@
 					"table": "BIA_XLA_AE_EVENTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_AE_HEADERS_V')]",
@@ -20493,9 +19950,7 @@
 					"table": "BIA_XLA_AE_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_AE_LINES_V')]",
@@ -20518,9 +19973,7 @@
 					"table": "BIA_XLA_AE_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_AE_LINK_V')]",
@@ -20543,9 +19996,7 @@
 					"table": "BIA_XLA_AE_LINK_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_AE_TRANS_V')]",
@@ -20568,9 +20019,7 @@
 					"table": "BIA_XLA_AE_TRANS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_GL_AP_V')]",
@@ -20593,9 +20042,7 @@
 					"table": "BIA_XLA_GL_AP_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_GL_AR_V')]",
@@ -20618,9 +20065,7 @@
 					"table": "BIA_XLA_GL_AR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_AP_JOB_COSTS_V')]",
@@ -20643,9 +20088,7 @@
 					"table": "BICS_AP_JOB_COSTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_AR_INVOICES_V')]",
@@ -20668,9 +20111,7 @@
 					"table": "BICS_AR_INVOICES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_BILLING_FORECAST_MV')]",
@@ -20693,9 +20134,7 @@
 					"table": "BICS_BILLING_FORECAST_MV"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_CONTRACT_DETAILS_V')]",
@@ -20718,9 +20157,7 @@
 					"table": "BICS_CONTRACT_DETAILS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_FA_DESCRIPTION_V')]",
@@ -20743,9 +20180,7 @@
 					"table": "BICS_FA_DESCRIPTION_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_BATCH_V')]",
@@ -20768,9 +20203,7 @@
 					"table": "BICS_GL_JOURNALS_BATCH_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_DTL_V')]",
@@ -20793,9 +20226,7 @@
 					"table": "BICS_GL_JOURNALS_DTL_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_HEADER_V')]",
@@ -20818,9 +20249,7 @@
 					"table": "BICS_GL_JOURNALS_HEADER_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_LINE_V')]",
@@ -20843,9 +20272,7 @@
 					"table": "BICS_GL_JOURNALS_LINE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_V')]",
@@ -20868,9 +20295,7 @@
 					"table": "BICS_GL_JOURNALS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_IPROCUREMENT_LICENSE_V')]",
@@ -20893,9 +20318,7 @@
 					"table": "BICS_IPROCUREMENT_LICENSE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_AP_RECEIVING_V')]",
@@ -20918,9 +20341,7 @@
 					"table": "BICS_PO_AP_RECEIVING_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_AP_TOTALS_V')]",
@@ -20943,9 +20364,7 @@
 					"table": "BICS_PO_AP_TOTALS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_CONV_V')]",
@@ -20968,9 +20387,7 @@
 					"table": "BICS_PO_CONV_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_PROJECTS')]",
@@ -20993,9 +20410,7 @@
 					"table": "BICS_PO_PROJECTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_PROJECTS_V')]",
@@ -21018,9 +20433,7 @@
 					"table": "BICS_PO_PROJECTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_REQUISITIONS')]",
@@ -21043,9 +20456,7 @@
 					"table": "BICS_PO_REQUISITION_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_REQUISITION_V')]",
@@ -21068,9 +20479,7 @@
 					"table": "BICS_PO_REQUISITION_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PRICE_LIST_DETAIL_V')]",
@@ -21093,9 +20502,7 @@
 					"table": "BICS_PRICE_LIST_DETAIL_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PROJECT_CLASSES_V')]",
@@ -21118,9 +20525,7 @@
 					"table": "BICS_PROJECT_CLASSES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_QUOTE_DETAIL_V')]",
@@ -21143,9 +20548,7 @@
 					"table": "BICS_QUOTE_DETAIL_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_REQUISITION_PROJECTS_V')]",
@@ -21168,9 +20571,7 @@
 					"table": "BICS_REQUISITION_PROJECTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_WF_STATUS_V')]",
@@ -21193,9 +20594,7 @@
 					"table": "BICS_WF_STATUS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_BATCHES')]",
@@ -21217,9 +20616,7 @@
 					"table": "GL_JE_BATCHES"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_HEADERS')]",
@@ -21241,9 +20638,7 @@
 					"table": "GL_JE_HEADERS"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_LINES')]",
@@ -21265,9 +20660,7 @@
 					"table": "GL_JE_LINES"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_SOURCES')]",
@@ -21289,9 +20682,7 @@
 					"table": "GL_JE_SOURCES"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_PBI_COMMISSIONS_V')]",
@@ -21314,9 +20705,7 @@
 					"table": "PBI_COMMISSIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS_UAT')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_DEPRICIATION_COST_F')]",
@@ -21339,9 +20728,7 @@
 					"table": "PBI_DEPRECIATION_COST_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_DEPRECIATION_COST_F')]",
@@ -21364,9 +20751,7 @@
 					"table": "PBI_DEPRECIATION_COST_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_COMMITED_COST_F')]",
@@ -21389,9 +20774,7 @@
 					"table": "PBI_PROJ_COMMITED_COST_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_COST_DETAIL_F')]",
@@ -21414,9 +20797,7 @@
 					"table": "PBI_PROJ_COST_DETAIL_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_COST_MJE_F')]",
@@ -21439,9 +20820,7 @@
 					"table": "PBI_PROJ_COST_MJE_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_ACTUAL_COST_F')]",
@@ -21464,9 +20843,7 @@
 					"table": "PBI_PROJ_TASK_ACTUAL_COST_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_AMT_PAID_F')]",
@@ -21489,9 +20866,7 @@
 					"table": "PBI_PROJ_TASK_AMT_PAID_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_BGT_CHANGES_F')]",
@@ -21514,9 +20889,7 @@
 					"table": "PBI_PROJ_TASK_BGT_CHANGES_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_BOARD_APRVD_BGT')]",
@@ -21539,9 +20912,7 @@
 					"table": "PBI_PROJ_TASK_BOARD_APRVD_BGT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_BUDGET_F')]",
@@ -21564,9 +20935,7 @@
 					"table": "PBI_PROJ_TASK_BUDGET_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_CURRENT_BUDGET_F')]",
@@ -21589,9 +20958,7 @@
 					"table": "PBI_PROJ_TASK_CURRENT_BUDGET_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_D')]",
@@ -21614,9 +20981,7 @@
 					"table": "PBI_PROJ_TASK_D"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_LABOR_SPENT_F')]",
@@ -21639,9 +21004,7 @@
 					"table": "PBI_PROJ_TASK_LABOR_SPENT_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJECTED_DEPRN_F')]",
@@ -21664,9 +21027,7 @@
 					"table": "PBI_PROJECTED_DEPRN_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_COMMITED_COST_F')]",
@@ -21689,9 +21050,7 @@
 					"table": "W_PROJ_COMMITED_COST_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_COST_DETAIL_F')]",
@@ -21714,9 +21073,7 @@
 					"table": "PBI_PROJ_COST_DETAIL_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_ACTUAL_COST_F')]",
@@ -21739,9 +21096,7 @@
 					"table": "PBI_PROJ_TASK_ACTUAL_COST_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_AMT_PAID_F')]",
@@ -21764,9 +21119,7 @@
 					"table": "W_PROJ_TASK_AMT_PAID_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BGT_CHANGES_F')]",
@@ -21789,9 +21142,7 @@
 					"table": "PBI_PROJ_TASK_BGT_CHANGES_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BOARD_APRVD_BGT_F')]",
@@ -21814,9 +21165,7 @@
 					"table": "PBI_PROJ_TASK_BOARD_APRVD_BGT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BUDGET_F')]",
@@ -21839,9 +21188,7 @@
 					"table": "PBI_PROJ_TASK_BUDGET_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_CURRENT_BUDGET_F')]",
@@ -21864,9 +21211,7 @@
 					"table": "PBI_PROJ_TASK_CURRENT_BUDGET_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_D')]",
@@ -21889,9 +21234,7 @@
 					"table": "W_PROJ_TASK_D"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_LABOR_SPENT_F')]",
@@ -21914,9 +21257,7 @@
 					"table": "W_PROJ_TASK_LABOR_SPENT_F"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsEBS')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AP_CHECKS_V')]",
@@ -21939,9 +21280,7 @@
 					"table": "BIA_AP_CHECKS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CASH_RECEIPTS_V')]",
@@ -21964,9 +21303,7 @@
 					"table": "BIA_AR_CASH_RECEIPTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_INVOICE_V')]",
@@ -21989,9 +21326,7 @@
 					"table": "BIA_AR_CUSTOMER_INVOICE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_RECEIPTS_V')]",
@@ -22014,9 +21349,7 @@
 					"table": "BIA_AR_CUSTOMER_RECEIPTS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_DIST_V')]",
@@ -22039,9 +21372,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_DIST_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_DIST_V2')]",
@@ -22064,9 +21395,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_DIST_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_HDR_V')]",
@@ -22089,9 +21418,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_HDR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_LINES_V')]",
@@ -22114,9 +21441,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_V')]",
@@ -22139,9 +21464,7 @@
 					"table": "BIA_AR_CUSTOMER_TRX_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_PAYMENT_SCHEDULES_V')]",
@@ -22164,9 +21487,7 @@
 					"table": "BIA_AR_PAYMENT_SCHEDULES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_RECEIVABLE_APPS_V')]",
@@ -22189,9 +21510,7 @@
 					"table": "BIA_AR_RECEIVABLE_APPS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_EXPENDITURE_ACCUM_V')]",
@@ -22214,9 +21533,7 @@
 					"table": "BIA_EXPENDITURE_ACCUM_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_EXPENDITURE_DIST_LINES_V')]",
@@ -22239,9 +21556,7 @@
 					"table": "BIA_EXPENDITURE_DIST_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_BATCHES_R11V')]",
@@ -22263,9 +21578,7 @@
 					"table": "BIA_GL_BATCHES_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_BILLING_MV')]",
@@ -22288,9 +21601,7 @@
 					"table": "BIA_GL_CAMP_BILLING_MV"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_BILLING_V')]",
@@ -22313,9 +21624,7 @@
 					"table": "BIA_GL_CAMP_BILLING_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_ENCL_BILLING_V')]",
@@ -22338,9 +21647,7 @@
 					"table": "BIA_GL_CAMP_ENCL_BILLING_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_HEADERS_R11V')]",
@@ -22363,9 +21670,7 @@
 					"table": "BIA_GL_HEADERS_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_JOURNALS_R11V')]",
@@ -22388,9 +21693,7 @@
 					"table": "BIA_GL_JOURNALS_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_AR_V')]",
@@ -22413,9 +21716,7 @@
 					"table": "BIA_GL_LINES_AR_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_R11V')]",
@@ -22438,9 +21739,7 @@
 					"table": "BIA_GL_LINES_R11V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_V')]",
@@ -22463,9 +21762,7 @@
 					"table": "BIA_GL_LINES_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_LINK_PO_REQ_V')]",
@@ -22488,9 +21785,7 @@
 					"table": "BIA_LINK_PO_REQ_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_MRTG_BILLING_V')]",
@@ -22512,9 +21807,7 @@
 					"table": "BIA_MRTG_BILLING_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_OFFICE_TSQFT')]",
@@ -22537,9 +21830,7 @@
 					"table": "BIA_OFFICE_TSQFT"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_PA_BUDGET_VERSIONS_V')]",
@@ -22561,9 +21852,7 @@
 					"table": "BIA_PA_BUDGET_VERSIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_PA_TASKS_V')]",
@@ -22585,9 +21874,7 @@
 					"table": "BIA_PA_TASKS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_POR_APPROVAL_STATUS_V')]",
@@ -22610,9 +21897,7 @@
 					"table": "BIA_POR_APPROVAL_STATUS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_CONTRACT_LINES')]",
@@ -22635,9 +21920,7 @@
 					"table": "BIA_POWER_CONTRACT_LINES"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_CAGE_MON_V')]",
@@ -22660,9 +21943,7 @@
 					"table": "BIA_POWER_KW_CAGE_MON_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_CAGE_V')]",
@@ -22685,9 +21966,7 @@
 					"table": "BIA_POWER_KW_CAGE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_CONTRACT_LINE_V')]",
@@ -22710,9 +21989,7 @@
 					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_ENCL_MONTH_V')]",
@@ -22734,9 +22011,7 @@
 					"table": "BIA_POWER_KW_ENCL_MONTH_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_ACTION_HISTORY_V')]",
@@ -22759,9 +22034,7 @@
 					"table": "BIA_PO_ACTION_HISTORY_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_DISTRIBUTIONS_V')]",
@@ -22784,9 +22057,7 @@
 					"table": "BIA_PO_DISTRIBUTIONS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_HEADERS_V')]",
@@ -22809,9 +22080,7 @@
 					"table": "BIA_PO_HEADERS_V"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_LINES_V')]",
@@ -22833,982 +22102,6 @@
 					"schema": "OACPROD",
 					"table": "BIA_PO_LINES_V"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_SHIPMENTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_PO_SHIPMENTS_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PO_SHIPMENTS_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PROJECTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PROJECTS_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_SALES_ORDER_HEADERS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_SALES_ORDER_HEADERS_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_SERVICE_CONTRACT_STRM1_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: BIA_SERVICE_CONTRACT_STRM1_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_SERVICE_CONTRACT_STRM1_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_XLA_AE_LINES_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nSchema: OACPROD\nTable: BIA_XLA_AE_LINES_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_XLA_AE_LINES_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_XLA_AE_LINK_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nSchema: OACPROD\nTable: BIA_XLA_AE_LINK_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_XLA_AE_LINK_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_AP_INVOICE')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView : BICS_AP_INVOICE",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_AP_INVOICE"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_AP_JOB_COSTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: BICS_AP_JOB_COSTS_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_AP_JOB_COSTS_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_AR_INVOICES_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: BICS_AR_INVOICES_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_AR_INVOICES_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_IPROCUREMENT_LICENSE_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_IPROCUREMENT_LICENSE_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_MRTG_90MV')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\n",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_MRTG_90MV"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_MRTG_SITE_USAGE')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nMaterialized View: BIA_GL_CAMP_BILLING_MV",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_MRTG_SITE_USAGE"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_PO_AP_RECEIVING_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: BICS_PO_AP_RECEIVING_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_PO_AP_RECEIVING_V"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_PO_AP_WORKFLOW')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source:  EBS\nView: BICS_PO_AP_WORKFLOW",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_PO_AP_WORKFLOW"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_PO_REQUISITIONS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: BICS_PO_REQUISITIONS",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_PO_REQUISITIONS"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_REQUISITION_PROJECTS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: BICS_REQUISITION_PROJECTS",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_REQUISITION_PROJECTS"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BICS_REVENUE_FT2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BICS_REVENUE_FT2"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_DEPRICIATION_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: W_DEPRICIATION_COST_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_DEPRICIATION_COST_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJECTED_DEPRN_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: W_PROJECTED_DEPRN_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJECTED_DEPRN_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_COMMITED_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: W_PROJ_COMMITED_COST_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_COMMITED_COST_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_COST_DETAIL_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: W_PROJ_COST_DETAIL_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_COST_DETAIL_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_COST_MJE_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_COST_MJE_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_ACTUAL_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: W_PROJ_TASK_ACTUAL_COST_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_TASK_ACTUAL_COST_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_AMT_PAID_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: W_PROJ_TASK_AMT_PAID_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_TASK_AMT_PAID_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_D')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: W_PROJ_TASK_D",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_TASK_D"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_LABOR_SPENT_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: W_PROJ_TASK_LABOR_SPENT_F",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "W_PROJ_TASK_LABOR_SPENT_F"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsOACPROD')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pmatrix_PBI_MATRIX_DEPT_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsMATRIX_Postgres",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - MATRIX"
-				},
-				"annotations": [],
-				"type": "PostgreSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "core",
-					"table": "pbi_matrix_dept_v"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsMATRIX_Postgres')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pmatrix_PBI_MATRIX_EMPLOYEE_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsMATRIX_Postgres",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - MATRIX"
-				},
-				"annotations": [],
-				"type": "PostgreSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "core",
-					"table": "pbi_matrix_employee_v"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsMATRIX_Postgres')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pmatrix_PBI_MATRIX_EMP_TYPE_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsMATRIX_Postgres",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - MATRIX"
-				},
-				"annotations": [],
-				"type": "PostgreSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "core",
-					"table": "pbi_matrix_emp_type_v"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsMATRIX_Postgres')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pmrtg_MRTG_BILLING')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsMRTG_Postgres",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - MRTG"
-				},
-				"annotations": [],
-				"type": "PostgreSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "mrtgbilling",
-					"table": "mrtg_billing"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/lsMRTG_Postgres')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/RestService1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "RestService",
-				"typeProperties": {
-					"url": "[parameters('RestService1_properties_typeProperties_url')]",
-					"enableServerCertificateValidation": true,
-					"authenticationType": "ManagedServiceIdentity",
-					"aadResourceId": "[parameters('RestService1_properties_typeProperties_aadResourceId')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsEBS')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "link service to Oracle EBS on Site",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsEBS_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsEBS_PROD')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to EBS On Prem Production (OFINPROD)",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsEBS_PROD_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsEBS_UAT')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "link service to Oracle EBS on Site UAT",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsEBS_UAT_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsMATRIX_Postgres')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "lsMATRIX_Postgres",
-				"annotations": [],
-				"type": "PostgreSql",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMATRIX_Postgres_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsMRTG')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to MRTG On Prem",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMRTG_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsMRTG_Postgres')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to MRTG on Postgres (On Prem)",
-				"annotations": [],
-				"type": "PostgreSql",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMRTG_Postgres_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsOACPROD')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service OAC PROD",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsOACPROD_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsSFDC')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service Sales Force Dot Com",
-				"annotations": [],
-				"type": "Salesforce",
-				"typeProperties": {
-					"environmentUrl": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]",
-					"username": "[parameters('lsSFDC_properties_typeProperties_username')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('lsSFDC_password')]"
-					},
-					"securityToken": {
-						"type": "SecureString",
-						"value": "[parameters('lsSFDC_securityToken')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_dwStageOAC')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "link service Azure SQL - dwStageOAC   ",
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('ls_dwStageOAC_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Oracle')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/azureintegrationRuntime')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "Managed",
-				"typeProperties": {
-					"computeProperties": {
-						"location": "AutoResolve",
-						"dataFlowProperties": {
-							"computeType": "General",
-							"coreCount": 8,
-							"timeToLive": 0
-						}
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/rdcir01')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
 			},
 			"dependsOn": []
 		}
