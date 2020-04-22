@@ -7,7 +7,7 @@
 		"type": "Oracle",
 		"typeProperties": {
 			"connectionString": "host=ca1-rdc-db-10.sac.ragingwire.net;port=1581;sid=OFINPROD;user id=APPSRO",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIwYTlmNjJkYy05YzE4LTQyOGYtYWJkOC1lNmI5Y2RmZjIxNGEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiYmI4ZDI2NC0xYzA4LTQ5YWItYmUwOS1kM2U1NGRmOWRjYzIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "rdcir01",
