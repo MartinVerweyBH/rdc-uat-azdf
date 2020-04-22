@@ -6486,7 +6486,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs2aoac_GeneralLedger')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedger')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -6649,14 +6649,14 @@
 					}
 				],
 				"folder": {
-					"name": "EBS 2 AzureOAC Pipelines"
+					"name": "pipe GeneralLedger"
 				},
 				"annotations": []
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs2aoac_GeneralLedgerJournals')]",
+			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedgerJournals')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -6759,7 +6759,7 @@
 					}
 				],
 				"folder": {
-					"name": "EBS 2 AzureOAC Pipelines"
+					"name": "pipe GeneralLedger"
 				},
 				"annotations": []
 			},
