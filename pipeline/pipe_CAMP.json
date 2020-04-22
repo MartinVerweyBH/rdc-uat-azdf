@@ -53,7 +53,7 @@
 						]
 					},
 					{
-						"activity": "pipe_stage_BIA_GL_CODE_COMBINATIONS_V",
+						"activity": "pipe_BIA_GL_CODE_COMBINATIONS_V",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -94,7 +94,7 @@
 				}
 			},
 			{
-				"name": "pipe_stage_BIA_GL_CODE_COMBINATIONS_V",
+				"name": "pipe_BIA_GL_CODE_COMBINATIONS_V",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
