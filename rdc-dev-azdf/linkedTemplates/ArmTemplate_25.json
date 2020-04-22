@@ -425,6 +425,12 @@
 								"dependencyConditions": [
 									"Succeeded"
 								]
+							},
+							{
+								"activity": "pipe_BIA_GL_SOB_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
 							}
 						],
 						"userProperties": [],
@@ -536,6 +542,62 @@
 						"typeProperties": {
 							"pipeline": {
 								"referenceName": "pipe_BIA_GL_PERIODS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_GL_SOB_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_SOB_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_GL_LINES_AR_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "BIA_GL_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_LINES_AR_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_GL_LINES_CAMP_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "BIA_GL_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_LINES_CAMP_V",
 								"type": "PipelineReference"
 							},
 							"waitOnCompletion": true,
