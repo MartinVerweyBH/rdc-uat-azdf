@@ -1,0 +1,17 @@
+{
+	"name": "lsMRTG_Postgres",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Link Service to PostgreSQL (MRTG) - On Prem",
+		"annotations": [],
+		"type": "PostgreSql",
+		"typeProperties": {
+			"connectionString": "host=ca1-rdc-db-01.sac.ragingwire.net;port=1681;database=mrtgbilling;uid=mrtgbilling;encryptionmethod=0",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxNzRhMzYzNi1iMDY0LTRjYjAtYTVjYS0xYWJhYzhhMWMzNDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "rdcir01",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
