@@ -1,0 +1,2355 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "rdc-dev-azdf"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_GL_ACCOUNTS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_GL_ACCOUNTS_V",
+				"activities": [
+					{
+						"name": "Copy BIA_GL_ACCOUNTS_V",
+						"description": "Copy BIA_GL_ACCOUNTS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_ACCOUNTS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "SEGMENT3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG3_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG3_DESC",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_GL_ACCOUNTS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_GL_ACCOUNTS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_GL_BATCHES_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy BIA_GL_BATCHES_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_BATCHES_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "SET_OF_BOOKS_ID_11I",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "SET_OF_BOOKS_ID_11I",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEFAULT_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEFAULT_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "RUNNING_TOTAL_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "RUNNING_TOTAL_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RUNNING_TOTAL_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "RUNNING_TOTAL_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RUNNING_TOTAL_ACCOUNTED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "RUNNING_TOTAL_ACCOUNTED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "RUNNING_TOTAL_ACCOUNTED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "RUNNING_TOTAL_ACCOUNTED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_GL_BATCHES_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_GL_BATCHES_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_GL_DEPARTMENTS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_GL_DEPARTMENTS_V",
+				"activities": [
+					{
+						"name": "Copy BIA_GL_DEPARTMENTS_V",
+						"description": "Copy BIA_GL_DEPARTMENTS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_DEPARTMENTS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "SEGMENT2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG2_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG2_DESC",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_GL_DEPARTMENTS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_GL_DEPARTMENTS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_GL_LOCATIONS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_GL_LOCATIONS_V",
+				"activities": [
+					{
+						"name": "Copy BIA_GL_LOCATIONS_V",
+						"description": "Copy BIA_GL_LOCATIONS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_LOCATIONS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "SEGMENT6",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEGMENT6",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SEG6_DESC",
+											"type": "String"
+										},
+										"sink": {
+											"name": "SEG6_DESC",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_GL_LOCATIONS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_GL_LOCATIONS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BIA_GL_PERIODS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BIA_GL_PERIODS_V",
+				"activities": [
+					{
+						"name": "Copy BIA_GL_PERIODS_V",
+						"description": "Copy BIA_GL_PERIODS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_GL_PERIODS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME_U",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME_U",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME_FULL",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME_FULL",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "END_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_YEAR",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PERIOD_YEAR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "PERIOD_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "QUARTER_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "QUARTER_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ENTERED_PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ADJUSTMENT_PERIOD_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ADJUSTMENT_PERIOD_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NUMBER_PER_FISCAL_YEAR",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "NUMBER_PER_FISCAL_YEAR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATION_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CREATION_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CREATED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CREATED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATED_BY",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LAST_UPDATED_BY",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_LOGIN",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_LOGIN",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CONTEXT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CONTEXT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE6",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE6",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE7",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE7",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE8",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE8",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLOSING_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLOSING_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLOSING_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLOSING_DESCRIPTION",
+											"type": "String"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_GL_PERIODS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_GL_PERIODS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_BATCH_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipeBICS_GL_JOURNALS_BATCH_V\nSource: EBS\nDestination: Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_BATCH_V",
+						"description": "Copy BICS_GL_JOURNALS_BATCH_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_BATCH_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_DEFAULT_PERIOD",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_DEFAULT_PERIOD",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_FISCAL_YEAR",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "BATCH_FISCAL_YEAR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_FISCAL_QTR",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_FISCAL_QTR",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_PERIOD_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_PERIOD_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_RUNNING_TOTAL_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_BATCH_RUNNING_TOTAL_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_RUNNING_TOTAL_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_BATCH_RUNNING_TOTAL_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_BATCH_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_BATCH_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_DTL_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipeBICS_GL_JOURNALS_DTL_V\nSource: EBS\nDestination:  Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_DTL_V",
+						"description": "Copy BICS_GL_JOURNALS_DTL_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_DTL_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_DTL_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_DTL_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_HEADER_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BICS_GL_JOURNALS_HEADER_V\nSource: EBS\nDestination: Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_HEADER_V",
+						"description": "Copy BICS_GL_JOURNALS_HEADER_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_HEADER_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "JE_CATEGORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HEADER_PERIOD",
+											"type": "String"
+										},
+										"sink": {
+											"name": "HEADER_PERIOD",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HEADER_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "HEADER_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXTERNAL_REFERENCE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EXTERNAL_REFERENCE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HDR_RUNNING_TOTAL_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_HDR_RUNNING_TOTAL_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HDR_RUNNING_TOTAL_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_HDR_RUNNING_TOTAL_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACTUAL_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACTUAL_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_HEADER_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_HEADER_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_LINE_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BICS_GL_JOURNALS_LINE_V\nSource: EBS\nDestination: Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_LINE_V",
+						"description": "Copy BICS_GL_JOURNALS_LINE_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_LINE_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "COMPANY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COMPANY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEPARTMENT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEPARTMENT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INTERCOMPANY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INTERCOMPANY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CUSTOMER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CUSTOMER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRODUCT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRODUCT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REFERENCE_6",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REFERENCE_6",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_CREATED",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_CREATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_UPDATED",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_UPDATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_LINE_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_LINE_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_GL_JOURNALS_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BICS_GL_JOURNALS_V\nSource: EBS\nDestination: Azure OAC",
+				"activities": [
+					{
+						"name": "Copy BICS_GL_JOURNALS_V",
+						"description": "Copy BICS_GL_JOURNALS_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_GL_JOURNALS_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_DEFAULT_PERIOD",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_DEFAULT_PERIOD",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_RUNNING_TOTAL_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_BATCH_RUNNING_TOTAL_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_FISCAL_YEAR",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "BATCH_FISCAL_YEAR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_RUNNING_TOTAL_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_BATCH_RUNNING_TOTAL_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_FISCAL_QTR",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_FISCAL_QTR",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BATCH_PERIOD_STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BATCH_PERIOD_STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_CATEGORY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "JE_CATEGORY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HEADER_PERIOD",
+											"type": "String"
+										},
+										"sink": {
+											"name": "HEADER_PERIOD",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HEADER_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "HEADER_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EXTERNAL_REFERENCE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EXTERNAL_REFERENCE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HDR_RUNNING_TOTAL_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_HDR_RUNNING_TOTAL_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_HDR_RUNNING_TOTAL_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "JE_HDR_RUNNING_TOTAL_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "COMPANY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "COMPANY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DEPARTMENT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DEPARTMENT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "INTERCOMPANY",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INTERCOMPANY",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CUSTOMER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CUSTOMER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PROJECT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PROJECT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRODUCT",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRODUCT",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_DR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_CR",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ENTERED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACTUAL_FLAG",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACTUAL_FLAG",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNT_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ATTRIBUTE5",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_TRANSACTION_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_TRANSACTION_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_CREATED",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_CREATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "DATE_UPDATED",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "DATE_UPDATED",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_GL_JOURNALS_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_GL_JOURNALS_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_PRICE_LIST_DETAIL_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BICS_PRICE_LIST_DETAIL_V",
+				"activities": [
+					{
+						"name": "Copy BICS_PRICE_LIST_DETAIL_V",
+						"description": "Copy BICS_PRICE_LIST_DETAIL_V ",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_PRICE_LIST_DETAIL_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PRICE_LIST_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRICE_LIST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRICE_LIST_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LIST_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LIST_END_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_UOM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_UOM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ITEM_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LINE_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LINE_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LINE_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LINE_END_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_PRICE_LIST_DETAIL_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_PRICE_LIST_DETAIL_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_oac_to_aoac_BIA_GL_LINES_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Pipeline to copy oac to aoac - BIA_GL_LINES_V",
+				"activities": [
+					{
+						"name": "Copy oac to aoac BIA_GL_LINES_V",
+						"description": "Copy oac BIA_GL_LINES_V to aoac BIA_GL_LINES_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_HEADER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_LINE_NUM",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "LEDGER_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "CODE_COMBINATION_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "STATUS",
+											"type": "String"
+										},
+										"sink": {
+											"name": "STATUS",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_DR",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ENTERED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ENTERED_CR",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ENTERED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_DR",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNTED_DR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "ACCOUNTED_CR",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ACCOUNTED_CR",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REFERENCE_1",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REFERENCE_1",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REFERENCE_2",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REFERENCE_2",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REFERENCE_3",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REFERENCE_3",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "REFERENCE_4",
+											"type": "String"
+										},
+										"sink": {
+											"name": "REFERENCE_4",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PARTY_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PARTY_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_INSTANCE_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_INSTANCE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "VENDOR_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "VENDOR_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_PROCESS_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "DSYS_PROCESS_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "INVOICE_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "INVOICE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "DSYS_BATCH_ID",
+											"type": "String"
+										},
+										"sink": {
+											"name": "DSYS_BATCH_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LAST_UPDATE_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "JE_BATCH_ID",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "oac_BIA_GL_LINES_V",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BIA_GL_LINES_V",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		}
+	]
+}
