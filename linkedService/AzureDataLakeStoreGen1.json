@@ -1,0 +1,14 @@
+{
+	"name": "AzureDataLakeStoreGen1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://devls.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "be8c0789-cb3d-4f3a-94d7-7c9301ca4803",
+			"subscriptionId": "a0c1c7fd-38b0-422f-8a34-8d9d015a9b00",
+			"resourceGroupName": "rdc-dev-rg"
+		}
+	}
+}

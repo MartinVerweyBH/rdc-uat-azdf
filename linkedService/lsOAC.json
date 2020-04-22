@@ -1,0 +1,21 @@
+{
+	"name": "lsOAC",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Link Service to Oracle OAC",
+		"annotations": [],
+		"type": "OracleServiceCloud",
+		"typeProperties": {
+			"host": "129.150.93.89",
+			"username": "oacprod",
+			"useEncryptedEndpoints": true,
+			"useHostVerification": true,
+			"usePeerVerification": true,
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiNjFlMGVkNi1hZjllLTQzYzItYTFlNi02MmQ1ODBjY2RlMGQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "rdcir01",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
