@@ -3,45 +3,8 @@
 	"properties": {
 		"description": "Scheduled Trigger Every 20 Minutes",
 		"annotations": [],
-		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BIA_AP_PO_DISTRIBUTION_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BIA_PROJECTS_CIP_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BIA_ORG_LOCATIONS_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BIA_ORDER_LINE_TYPE_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BIA_LINK_PO_REQ_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BIA_EMPLOYEE_LICENSES_V",
-					"type": "PipelineReference"
-				}
-			}
-		],
+		"runtimeState": "Stopped",
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
