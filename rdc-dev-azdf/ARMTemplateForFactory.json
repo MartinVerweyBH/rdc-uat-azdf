@@ -7,18 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "rdc-dev-azdf"
 		},
-		"AzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
-		},
-		"AzureDataLakeStorage_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage'"
-		},
-		"azdl_ebs_gl_codecombinations_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'azdl_ebs_gl_codecombinations'"
-		},
 		"lsEBS_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lsEBS'"
@@ -43,18 +31,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lsMRTG_Postgres'"
 		},
-		"lsMTRXUATC_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMTRXUATC'"
-		},
-		"lsMTRXUATP_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMTRXUATP'"
-		},
-		"lsOAC_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'lsOAC'"
-		},
 		"lsOACPROD_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lsOACPROD'"
@@ -67,33 +43,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'securityToken' of 'lsSFDC'"
 		},
-		"ls_dbStageRDC_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_dbStageRDC'"
-		},
 		"ls_dwStageOAC_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_dwStageOAC'"
-		},
-		"AzureDataLakeStorage_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://blobdevstorgen01.dfs.core.windows.net"
-		},
-		"AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri": {
-			"type": "string",
-			"defaultValue": "https://devls.azuredatalakestore.net/webhdfs/v1"
-		},
-		"AzureDataLakeStoreGen1_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "be8c0789-cb3d-4f3a-94d7-7c9301ca4803"
-		},
-		"AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "a0c1c7fd-38b0-422f-8a34-8d9d015a9b00"
-		},
-		"AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "rdc-dev-rg"
 		},
 		"RestService1_properties_typeProperties_url": {
 			"type": "string",
@@ -102,18 +54,6 @@
 		"RestService1_properties_typeProperties_aadResourceId": {
 			"type": "string",
 			"defaultValue": "https://management.core.windows.net"
-		},
-		"azdl_ebs_gl_codecombinations_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://blobdevstorgen01.dfs.core.windows.net"
-		},
-		"lsOAC_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "129.150.93.89"
-		},
-		"lsOAC_properties_typeProperties_username": {
-			"type": "string",
-			"defaultValue": "oacprod"
 		},
 		"lsSFDC_properties_typeProperties_environmentUrl": {
 			"type": "string",
@@ -129,52 +69,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage_accountKey')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStoreGen1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDataLakeStore",
-				"typeProperties": {
-					"dataLakeStoreUri": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_dataLakeStoreUri')]",
-					"tenant": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('AzureDataLakeStoreGen1_properties_typeProperties_resourceGroupName')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/RestService1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -186,23 +80,6 @@
 					"enableServerCertificateValidation": true,
 					"authenticationType": "ManagedServiceIdentity",
 					"aadResourceId": "[parameters('RestService1_properties_typeProperties_aadResourceId')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/azdl_ebs_gl_codecombinations')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('azdl_ebs_gl_codecombinations_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('azdl_ebs_gl_codecombinations_accountKey')]"
-					}
 				}
 			},
 			"dependsOn": []
@@ -328,74 +205,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/lsMTRXUATC')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to MTRXUATC",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMTRXUATC_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsMTRXUATP')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to Matrix on-prem MTRXUATP",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMTRXUATP_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsOAC')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to Oracle OAC",
-				"annotations": [],
-				"type": "OracleServiceCloud",
-				"typeProperties": {
-					"host": "[parameters('lsOAC_properties_typeProperties_host')]",
-					"username": "[parameters('lsOAC_properties_typeProperties_username')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('lsOAC_password')]"
-					},
-					"useEncryptedEndpoints": true,
-					"useHostVerification": true,
-					"usePeerVerification": true
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/lsOACPROD')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -437,19 +246,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/rdcir01')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_dbStageRDC')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('ls_dbStageRDC_connectionString')]"
-				}
-			},
-			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ls_dwStageOAC')]",
