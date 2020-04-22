@@ -13,6 +13,281 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AR_CUSTOMER_TRX_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_AR_CUSTOMER_TRX_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_PAYMENT_SCHEDULES_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AR_PAYMENT_SCHEDULES_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_AR_PAYMENT_SCHEDULES_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_RECEIVABLE_APPS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nView: BIA_AR_RECEIVABLE_APPS_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_AR_RECEIVABLE_APPS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_EXPENDITURE_ACCUM_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "OAC BIA_EXPENDITURE_ACCUM_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_EXPENDITURE_ACCUM_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_EXPENDITURE_DIST_LINES_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nView: BIA_EXPENDITURE_DIST_LINES_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_EXPENDITURE_DIST_LINES_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_BATCHES_R11V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_BATCHES_R11V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_BILLING_MV')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nMaterialized View: BIA_GL_CAMP_BILLING_MV",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_CAMP_BILLING_MV"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_BILLING_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\n",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_CAMP_BILLING_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_ENCL_BILLING_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nVIEW: OACPROD.BIA_GL_CAMP_ENCL_BILLING_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_CAMP_ENCL_BILLING_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_HEADERS_R11V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_HEADERS_R11V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_JOURNALS_R11V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_JOURNALS_R11V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_AR_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nView : BIA_GL_LINES_AR_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_LINES_AR_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_R11V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -189,280 +464,6 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "BIA_POR_APPROVAL_STATUS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_CONTRACT_LINES')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_POWER_CONTRACT_LINES"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_CAGE_MON_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_POWER_KW_CAGE_MON_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_CAGE_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_POWER_KW_CAGE_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_CONTRACT_LINE_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_POWER_KW_ENCL_MONTH_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_POWER_KW_ENCL_MONTH_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_ACTION_HISTORY_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nView: BIA_PO_ACTION_HISTORY_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PO_ACTION_HISTORY_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_DISTRIBUTIONS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_PO_DISTRIBUTIONS_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PO_DISTRIBUTIONS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_HEADERS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nVIEW: BIA_PO_HEADERS_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PO_HEADERS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_LINES_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_PO_LINES_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PO_LINES_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PO_SHIPMENTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_PO_SHIPMENTS_V",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PO_SHIPMENTS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_PROJECTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_PROJECTS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_SALES_ORDER_HEADERS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_SALES_ORDER_HEADERS_V"
 				}
 			},
 			"dependsOn": []

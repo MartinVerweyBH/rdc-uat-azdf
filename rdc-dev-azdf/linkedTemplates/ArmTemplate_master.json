@@ -294,21 +294,6 @@
 					},
 					"lsMRTG_connectionString": {
 						"value": "[parameters('lsMRTG_connectionString')]"
-					},
-					"lsMRTG_Postgres_connectionString": {
-						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
-					},
-					"lsSFDC_password": {
-						"value": "[parameters('lsSFDC_password')]"
-					},
-					"lsSFDC_securityToken": {
-						"value": "[parameters('lsSFDC_securityToken')]"
-					},
-					"lsSFDC_properties_typeProperties_environmentUrl": {
-						"value": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]"
-					},
-					"lsSFDC_properties_typeProperties_username": {
-						"value": "[parameters('lsSFDC_properties_typeProperties_username')]"
 					}
 				}
 			},
@@ -329,6 +314,21 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsMRTG_Postgres_connectionString": {
+						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
+					},
+					"lsSFDC_password": {
+						"value": "[parameters('lsSFDC_password')]"
+					},
+					"lsSFDC_securityToken": {
+						"value": "[parameters('lsSFDC_securityToken')]"
+					},
+					"lsSFDC_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]"
+					},
+					"lsSFDC_properties_typeProperties_username": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_username')]"
 					}
 				}
 			},

@@ -13,6 +13,282 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_XLA_GL_AR_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BIA_XLA_GL_AR_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BIA_XLA_GL_AR_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_AP_JOB_COSTS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_AP_JOB_COSTS_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_AP_JOB_COSTS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_AR_INVOICES_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_AR_INVOICES_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_AR_INVOICES_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_BILLING_FORECAST_MV')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nDestination: Azure OAC\nVIEW: APPS.BICS_BILLING_FORECAST_MV",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_BILLING_FORECAST_MV"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_CONTRACT_DETAILS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_CONTRACT_DETAILS_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_CONTRACT_DETAILS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_FA_DESCRIPTION_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_FA_DESCRIPTION_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_FA_DESCRIPTION_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_BATCH_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_GL_JOURNALS_BATCH_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_GL_JOURNALS_BATCH_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_DTL_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_GL_JOURNALS_DTL_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_GL_JOURNALS_DTL_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_HEADER_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_GL_JOURNALS_HEADER_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_GL_JOURNALS_HEADER_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_LINE_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_GL_JOURNALS_LINE_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_GL_JOURNALS_LINE_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_GL_JOURNALS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_GL_JOURNALS_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_GL_JOURNALS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BICS_IPROCUREMENT_LICENSE_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BICS_IPROCUREMENT_LICENSE_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BICS_IPROCUREMENT_LICENSE_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PO_AP_RECEIVING_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -192,278 +468,6 @@
 				"typeProperties": {
 					"schema": "APPS",
 					"table": "BICS_PRICE_LIST_DETAIL_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BICS_PROJECT_CLASSES_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BICS_PROJECT_CLASSES_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BICS_PROJECT_CLASSES_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BICS_QUOTE_DETAIL_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BICS_QUOTE_DETAIL_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BICS_QUOTE_DETAIL_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BICS_REQUISITION_PROJECTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BICS_REQUISITION_PROJECTS_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BICS_REQUISITION_PROJECTS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BICS_WF_STATUS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BICS_WF_STATUS_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BICS_WF_STATUS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_BATCHES')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "GL_JE_BATCHES"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_HEADERS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "GL_JE_HEADERS"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_LINES')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "GL_JE_LINES"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_GL_JE_SOURCES')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "GL_JE_SOURCES"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_PBI_COMMISSIONS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nDestination: Azure OAC\nView: APPS.PBI_COMMISSIONS_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS_UAT",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "PBI_COMMISSIONS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_W_DEPRICIATION_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: W_DEPRICIATION_COST_F\n\n",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "PBI_DEPRECIATION_COST_F"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_DEPRECIATION_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nDestination: Azure OAC\nVIEW: APPS.PBI_DEPRECIATION_COST_F",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "PBI_DEPRECIATION_COST_F"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_COMMITED_COST_F')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nDestination: Azure OAC\nVIEW: APPS.PBI_PROJ_COMMITED_COST_F",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "PBI_PROJ_COMMITED_COST_F"
 				}
 			},
 			"dependsOn": []

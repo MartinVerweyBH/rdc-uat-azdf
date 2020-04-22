@@ -23774,6 +23774,269 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/full_trigger_LDOM_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Full Trigger Last Day Of Month",
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Month",
+						"interval": 1,
+						"startTime": "2020-02-06T06:39:00Z",
+						"timeZone": "UTC",
+						"schedule": {
+							"minutes": [
+								59
+							],
+							"hours": [
+								23
+							],
+							"monthDays": [
+								-1
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_trigger_min20_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "stage_trigger_min20_schedule",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 20,
+						"startTime": "2020-02-05T06:15:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_trigger_min60_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "stage_trigger_min60_schedule",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 60,
+						"startTime": "2020-02-10T15:03:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_hour_01_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 1 Hour",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2020-01-27T06:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_hour_02_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 2 Hours",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2020-01-27T06:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_hour_04_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 4 Hours",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 4,
+						"startTime": "2020-01-27T03:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_hour_06_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 6 Hours",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 6,
+						"startTime": "2020-01-27T06:00:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_hour_24_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 24 Hours",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 24,
+						"startTime": "2020-02-01T05:00:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_minute_15_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 15 Minutes",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2020-01-27T06:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_minute_20_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 20 Minutes",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2020-01-27T06:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_minute_30_schedule')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Scheduled Trigger Every 30 Minutes",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Hour",
+						"interval": 1,
+						"startTime": "2020-01-27T06:00:00.000Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger_once_off_load_from_oac')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2020-01-01T09:40:00Z",
+						"endTime": "2020-01-01T09:40:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Oracle')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",

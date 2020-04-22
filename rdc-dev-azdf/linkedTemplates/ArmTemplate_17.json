@@ -13,6 +13,282 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_D')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APP.PBI_PROJ_TASK_D",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_D"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_LABOR_SPENT_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APPSPBI_PROJ_TASK_LABOR_SPENT_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_LABOR_SPENT_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJECTED_DEPRN_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJECTED_DEPRN_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJECTED_DEPRN_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_COMMITED_COST_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_COMMITED_COST_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "W_PROJ_COMMITED_COST_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_COST_DETAIL_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_COST_DETAIL_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_COST_DETAIL_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_ACTUAL_COST_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: APPS.W_PROJ_TASK_ACTUAL_COST_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_ACTUAL_COST_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_AMT_PAID_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_AMT_PAID_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "W_PROJ_TASK_AMT_PAID_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BGT_CHANGES_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_BGT_CHANGES_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_BGT_CHANGES_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BOARD_APRVD_BGT_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_BOARD_APRVD_BGT_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_BOARD_APRVD_BGT"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BUDGET_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_BUDGET_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_BUDGET_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_CURRENT_BUDGET_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_CURRENT_BUDGET_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_CURRENT_BUDGET_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_D')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_D",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "W_PROJ_TASK_D"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_LABOR_SPENT_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
