@@ -1,0 +1,103 @@
+{
+	"name": "ebs2aoac_GeneralLedgerJournals",
+	"properties": {
+		"activities": [
+			{
+				"name": "pipe_BICS_GL_JOURNALS_BATCH_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_GL_JOURNALS_BATCH_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BICS_GL_JOURNALS_DTL_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_GL_JOURNALS_DTL_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BICS_GL_JOURNALS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_GL_JOURNALS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BICS_GL_JOURNALS_HEADER_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BICS_GL_JOURNALS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "pipe_BICS_GL_JOURNALS_DTL_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "pipe_BICS_GL_JOURNALS_BATCH_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_GL_JOURNALS_HEADER_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "pipe_BICS_GL_JOURNALS_LINE_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "pipe_BICS_GL_JOURNALS_HEADER_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_BICS_GL_JOURNALS_LINE_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "EBS 2 AzureOAC Pipelines"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
