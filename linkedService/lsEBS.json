@@ -2,12 +2,12 @@
 	"name": "lsEBS",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"description": "link service to Oracle EBS on Site",
+		"description": "Link Service to EBS Production (On Prem)",
 		"annotations": [],
 		"type": "Oracle",
 		"typeProperties": {
-			"connectionString": "host=ca1-rdc-db-10.sac.ragingwire.net;port=1581;sid=OFINPROD;user id=appsro",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhNWEzYzg3OC0wMWJlLTRlZjktOTJhNC04Y2I3NjM1MDY5MWEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"connectionString": "host=ca1-rdc-db-10.sac.ragingwire.net;port=1581;servicename=OFINPROD;user id=APPSRO",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4N2E5NGVjNC1kMTU2LTQxYTYtYjhmYS1hMzE0ZGI5MjE1NzkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "rdcir01",
