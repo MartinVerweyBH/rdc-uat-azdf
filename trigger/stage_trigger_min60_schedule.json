@@ -4,26 +4,7 @@
 		"description": "stage_trigger_min60_schedule",
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_AP_DEFERMENTS_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_oac_to_aoac_BIA_POWER_CONTRACT_LINES",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_CUSTOMER_REV_V",
-					"type": "PipelineReference"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
