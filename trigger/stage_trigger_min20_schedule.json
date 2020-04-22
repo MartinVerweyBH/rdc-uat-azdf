@@ -4,86 +4,13 @@
 		"description": "stage_trigger_min20_schedule",
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_AP_INVOICE_DIST_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_GL_LINES_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_OAC_PAYABLES_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_PO_DISTRIBUTIONS_BRDG",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_XLA_AE_LINES_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_XLA_AE_TRANS_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BICS_GL_JOURNALS_LINE_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BICS_QUOTE_DETAIL_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BICS_REQUISITION_PROJECTS",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BICS_IPROCUREMENT_LICENSE_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_stage_BIA_PO_DISTRIBUTIONS_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_PurchaseOrders",
-					"type": "PipelineReference"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 20,
-				"startTime": "2020-02-05T06:15:00Z",
+				"startTime": "2020-02-05T06:15:00.000Z",
 				"timeZone": "UTC"
 			}
 		}
