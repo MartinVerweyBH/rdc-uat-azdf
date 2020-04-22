@@ -1,0 +1,732 @@
+{
+	"name": "pipe_xCAMP",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy BIA_ORGANIZATIONS_V",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_ORGANIZATIONS_V",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ORGANIZATION_ID",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "ORGANIZATION_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BUSINESS_GROUP_ID",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "BUSINESS_GROUP_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "LOCATION_ID",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "LOCATION_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "LOCATION_CODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LOCATION_CODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTRY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "COUNTRY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS_LINE_1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDRESS_LINE_1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS_LINE_2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDRESS_LINE_2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS_LINE_3",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ADDRESS_LINE_3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REGION_1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REGION_1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REGION_2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REGION_2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REGION_3",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REGION_3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTAL_CODE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "POSTAL_CODE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TOWN_OR_CITY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOWN_OR_CITY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_FROM",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "DATE_FROM",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_TO",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "DATE_TO",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "LAST_UPDATE_DATE",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LAST_UPDATE_DATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "OBJECT_VERSION_NUMBER",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "OBJECT_VERSION_NUMBER",
+									"type": "Decimal"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ebs_BIA_ORGANIZATIONS_V",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "xCAMP_BIA_ORGANIZATIONS_V",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy BIA_FLEX_RWT_PROJECT",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy BIA_ORGANIZATIONS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_FLEX_RWT_PROJECT",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "FLEX_VALUE_SET_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FLEX_VALUE_SET_NAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FLEX_VALUE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FLEX_VALUE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DESCRIPTION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DESCRIPTION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ENABLED_FLAG",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ENABLED_FLAG",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SUMMARY_FLAG",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SUMMARY_FLAG",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ebs_BIA_FLEX_RWT_PROJECT",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "xCAMP_BIA_FLEX_RWT_PROJECT",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy BIA_GL_CODE_COMBINATIONS_V",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy BIA_GL_CAMP_CATEGORY_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_GL_CODE_COMBINATIONS_V",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CODE_COMBINATION_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "CODE_COMBINATION_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "CHART_OF_ACCOUNTS_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "CHART_OF_ACCOUNTS_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ACCOUNT_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ACCOUNT_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LAST_UPDATE_DATE",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "LAST_UPDATE_DATE",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "SEGMENT1",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEGMENT1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEG1_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEG1_DESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEGMENT2",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEGMENT2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEG2_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEG2_DESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEGMENT3",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEGMENT3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEG3_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEG3_DESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEGMENT4",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEGMENT4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEG4_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEG4_DESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEGMENT5",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEGMENT5",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEG5_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEG5_DESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEGMENT6",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEGMENT6",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEG6_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEG6_DESC",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEGMENT7",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEGMENT7",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEG7_DESC",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEG7_DESC",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ebs_BIA_GL_CODE_COMBINATIONS_V",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "xCAMP_BIA_GL_CODE_COMBINATIONS_V",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Copy BIA_GL_CAMP_CATEGORY_V",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE xCAMP.BIA_GL_CAMP_CATEGORY_V",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CAMP_ACCOUNT_CODE",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "CAMP_ACCOUNT_CODE",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "RDC_ACCOUNT_CATEGORY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "RDC_ACCOUNT_CATEGORY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NTT_ACCOUNT_CATEGORY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NTT_ACCOUNT_CATEGORY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ORIG_ACCOUNT_CATEGORY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ORIG_ACCOUNT_CATEGORY",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ebs_BIA_GL_CAMP_CATEGORY_V",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "xCAMP_BIA_GL_CAMP_CATEGORY_V",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "stage BIA_GL_HEADERS_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_xCAMP_stage_BIA_GL_HEADERS_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "stage BIA_GL_LINES_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Copy BIA_FLEX_RWT_PROJECT",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Copy BIA_GL_CODE_COMBINATIONS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "stage BIA_GL_HEADERS_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "stage BIA_POWER_KW_ENCL_MONTH_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_xCAMP_stage_BIA_GL_LINES_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "stage BIA_POWER_KW_CONTRACT_LINE_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_xCAMP_stage_BIA_POWER_KW_CONTRACT_LINE_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "stage BIA_POWER_KW_ENCL_MONTH_V",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "stage BIA_POWER_KW_CONTRACT_LINE_V",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipe_xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Pipe xCAMP"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
