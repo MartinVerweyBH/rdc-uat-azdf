@@ -1,0 +1,315 @@
+{
+	"name": "pipe_oac_to_aoac_BIA_POWER_KW_ENCL_MONTH_V",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy BIA_POWER_KW_ENCL_MONTH_V",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "OracleSource",
+						"partitionOption": "None",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE OACPROD.BIA_POWER_KW_ENCL_MONTH_V",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "PERIOD_MONTH",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PERIOD_MONTH",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CLIENT_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CLIENT_NAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LOC_PATH",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LOC_PATH",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AVG_SQUARE_FEET_INUSE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVG_SQUARE_FEET_INUSE",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "IIC_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "IIC_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BILL_CONTRACT_LINE_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "BILL_CONTRACT_LINE_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "OFIN_CUSTOMER_NUMBER",
+									"type": "String"
+								},
+								"sink": {
+									"name": "OFIN_CUSTOMER_NUMBER",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DSYS_INSTANCE_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "DSYS_INSTANCE_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "AVG_KW_READING_VALUE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AVG_KW_READING_VALUE",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "KWH",
+									"type": "String"
+								},
+								"sink": {
+									"name": "KWH",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "DSYS_PROCESS_ID",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "DSYS_PROCESS_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BILL_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BILL_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DSYS_BATCH_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DSYS_BATCH_ID",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "WAREHOUSE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WAREHOUSE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SF_BUILT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SF_BUILT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ROOM",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ROOM",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ENCLOSURE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ENCLOSURE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_AVG_KW",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTAL_AVG_KW",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "PCT_AVG_KW",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PCT_AVG_KW",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_KWH",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTAL_KWH",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "PCT_KWH",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PCT_KWH",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_SQFT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTAL_SQFT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_SQFT_PCT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTAL_SQFT_PCT",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "BILL_TYPE_REPORTING",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BILL_TYPE_REPORTING",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_SQFT_OFFICE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTAL_SQFT_OFFICE",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL_SQFT_OFFICE_PCT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TOTAL_SQFT_OFFICE_PCT",
+									"type": "Decimal"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "oac_BIA_POWER_KW_ENCL_MONTH_V",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "aoac_BIA_POWER_KW_ENCL_MONTH_V",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "OAC Pipelines/Once off load from OAC"
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
