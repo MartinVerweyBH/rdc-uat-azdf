@@ -1,0 +1,43 @@
+{
+	"name": "trigger_minute_15_schedule",
+	"properties": {
+		"description": "Scheduled Trigger Every 15 Minutes",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BICS_GL_JOURNALS_BATCH_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BICS_GL_JOURNALS_HEADER_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BICS_GL_JOURNALS_DTL_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BICS_GL_JOURNALS_V",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2020-01-27T06:00:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

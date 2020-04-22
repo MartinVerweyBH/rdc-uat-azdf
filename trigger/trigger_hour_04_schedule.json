@@ -1,0 +1,91 @@
+{
+	"name": "trigger_hour_04_schedule",
+	"properties": {
+		"description": "Scheduled Trigger Every 4 Hours",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_SYSTEM_ITEMS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_GL_LINES_AR_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_QUOTE_LINES_V2",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_SYSTEM_ITEMS_LINK_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_ITEMS_CODES_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_PRICE_LIST_ITEMS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_REV_CATEGORY_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_REV_CATEGORY_ITEMS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_AR_CUSTOMER_TRX_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_PRICE_LISTS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_SYSTEM_ITEMS_ORG_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_XLA_GL_AR_V",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 4,
+				"startTime": "2020-01-27T03:00:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

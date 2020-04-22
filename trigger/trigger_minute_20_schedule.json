@@ -1,0 +1,55 @@
+{
+	"name": "trigger_minute_20_schedule",
+	"properties": {
+		"description": "Scheduled Trigger Every 20 Minutes",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_AP_PO_DISTRIBUTION_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_PROJECTS_CIP_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_ORG_LOCATIONS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_ORDER_LINE_TYPE_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_LINK_PO_REQ_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_EMPLOYEE_LICENSES_V",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2020-01-27T06:00:00.000Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

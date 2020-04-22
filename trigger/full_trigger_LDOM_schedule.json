@@ -1,0 +1,96 @@
+{
+	"name": "full_trigger_LDOM_schedule",
+	"properties": {
+		"description": "Full Trigger Last Day Of Month",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_AP_DEFERMENTS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_AP_INVOICE_DIST_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_GL_HEADERS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_GL_LINES_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_OAC_PAYABLES_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_XLA_AE_LINES_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_XLA_AE_TRANS_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BICS_GL_JOURNALS_LINE_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BICS_QUOTE_DETAIL_V",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BICS_REQUISITION_PROJECTS",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipe_BIA_CUSTOMER_REV_V",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Month",
+				"interval": 1,
+				"startTime": "2020-02-06T06:39:00Z",
+				"timeZone": "UTC",
+				"schedule": {
+					"minutes": [
+						59
+					],
+					"hours": [
+						23
+					],
+					"monthDays": [
+						-1
+					]
+				}
+			}
+		}
+	}
+}
