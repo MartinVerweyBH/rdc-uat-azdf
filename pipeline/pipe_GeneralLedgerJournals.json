@@ -1,5 +1,5 @@
 {
-	"name": "ebs2aoac_GeneralLedgerJournals",
+	"name": "pipe_GeneralLedgerJournals",
 	"properties": {
 		"activities": [
 			{
@@ -95,7 +95,7 @@
 			}
 		],
 		"folder": {
-			"name": "EBS 2 AzureOAC Pipelines"
+			"name": "pipe GeneralLedger"
 		},
 		"annotations": []
 	},
