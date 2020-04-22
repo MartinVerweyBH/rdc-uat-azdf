@@ -69,301 +69,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedger')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "BIA_GL_HEADERS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "BIA_GL_ACCOUNTS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "BIA_GL_CODE_COMBINATIONS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "BIA_GL_BATCHES_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "BIA_GL_DEPARTMENTS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "BIA_GL_LOCATIONS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "BIA_GL_PERIODS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_HEADERS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "BIA_GL_LINES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "BIA_GL_HEADERS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_LINES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "BIA_GL_ACCOUNTS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_ACCOUNTS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "BIA_GL_CODE_COMBINATIONS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_CODE_COMBINATIONS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "BIA_GL_BATCHES_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_BATCHES_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "BIA_GL_DEPARTMENTS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_DEPARTMENTS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "BIA_GL_LOCATIONS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_LOCATIONS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "BIA_GL_PERIODS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BIA_GL_PERIODS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "pipe GeneralLedger"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_HEADERS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LINES_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_ACCOUNTS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_CODE_COMBINATIONS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_BATCHES_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_DEPARTMENTS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LOCATIONS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_PERIODS_V')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedgerJournals')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "pipe_BICS_GL_JOURNALS_BATCH_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BICS_GL_JOURNALS_BATCH_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BICS_GL_JOURNALS_DTL_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BICS_GL_JOURNALS_DTL_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BICS_GL_JOURNALS_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BICS_GL_JOURNALS_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BICS_GL_JOURNALS_HEADER_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BICS_GL_JOURNALS_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "pipe_BICS_GL_JOURNALS_DTL_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "pipe_BICS_GL_JOURNALS_BATCH_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BICS_GL_JOURNALS_HEADER_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					},
-					{
-						"name": "pipe_BICS_GL_JOURNALS_LINE_V",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "pipe_BICS_GL_JOURNALS_HEADER_V",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipe_BICS_GL_JOURNALS_LINE_V",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": true,
-							"parameters": {}
-						}
-					}
-				],
-				"folder": {
-					"name": "pipe GeneralLedger"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_BATCH_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_DTL_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_HEADER_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_LINE_V')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pipe_BIA_AP_INVOICE_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -746,7 +451,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -4076,7 +3781,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -4865,7 +4570,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -4947,7 +4652,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -5356,7 +5061,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -5559,7 +5264,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -6061,7 +5766,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -6423,7 +6128,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -6645,7 +6350,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -7117,7 +6822,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -7429,7 +7134,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -7681,7 +7386,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -9512,6 +9217,301 @@
 				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_CAMP_CATEGORY_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_oac_to_aoac_BIA_POWER_KW_CONTRACT_LINE_V')]",
 				"[concat(variables('factoryId'), '/pipelines/pipe_oac_to_aoac_BIA_POWER_KW_ENCL_MONTH_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedger')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "BIA_GL_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "BIA_GL_ACCOUNTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_CODE_COMBINATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_BATCHES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_DEPARTMENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_LOCATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_PERIODS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "BIA_GL_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_ACCOUNTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_ACCOUNTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_CODE_COMBINATIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_CODE_COMBINATIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_BATCHES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_BATCHES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_DEPARTMENTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_DEPARTMENTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_LOCATIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_LOCATIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_PERIODS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_PERIODS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_HEADERS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LINES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_ACCOUNTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_CODE_COMBINATIONS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_BATCHES_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_DEPARTMENTS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LOCATIONS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_PERIODS_V')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedgerJournals')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "pipe_BICS_GL_JOURNALS_BATCH_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_BATCH_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_GL_JOURNALS_DTL_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_DTL_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_GL_JOURNALS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_GL_JOURNALS_HEADER_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_DTL_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_BATCH_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_HEADER_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BICS_GL_JOURNALS_LINE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BICS_GL_JOURNALS_HEADER_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BICS_GL_JOURNALS_LINE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_BATCH_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_DTL_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_HEADER_V')]",
+				"[concat(variables('factoryId'), '/pipelines/pipe_BICS_GL_JOURNALS_LINE_V')]"
 			]
 		},
 		{
@@ -13327,7 +13327,7 @@
 					}
 				],
 				"folder": {
-					"name": "OAC Pipelines/Once off load from OAC"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -13747,7 +13747,7 @@
 					}
 				],
 				"folder": {
-					"name": "EBS 2 AzureOAC Pipelines - Stage"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -14380,7 +14380,7 @@
 					}
 				],
 				"folder": {
-					"name": "EBS 2 AzureOAC Pipelines - Stage"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
@@ -14818,7 +14818,7 @@
 					}
 				],
 				"folder": {
-					"name": "EBS 2 AzureOAC Pipelines - Stage"
+					"name": "pipe PurchaseOrders"
 				},
 				"annotations": []
 			},
