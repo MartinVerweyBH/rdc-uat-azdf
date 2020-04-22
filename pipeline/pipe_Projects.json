@@ -1193,7 +1193,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
+						"type": "OracleSource",
+						"partitionOption": "None",
 						"queryTimeout": "02:00:00"
 					},
 					"sink": {
@@ -1490,7 +1491,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "aoac_BIA_PROJECTS_V",
+						"referenceName": "oac_BIA_PROJECTS_V",
 						"type": "DatasetReference"
 					}
 				],
