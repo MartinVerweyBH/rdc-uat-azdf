@@ -177,6 +177,9 @@
 						}
 					}
 				],
+				"folder": {
+					"name": "Pipe CAMP"
+				},
 				"annotations": []
 			},
 			"dependsOn": []
