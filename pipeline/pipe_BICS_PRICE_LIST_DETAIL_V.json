@@ -5,7 +5,7 @@
 		"activities": [
 			{
 				"name": "Copy BICS_PRICE_LIST_DETAIL_V",
-				"description": "Copy BICS_PRICE_LIST_DETAIL_V",
+				"description": "Copy BICS_PRICE_LIST_DETAIL_V ",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
