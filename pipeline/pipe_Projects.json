@@ -2444,6 +2444,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "pipe Projects"
+		},
 		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
