@@ -13,6 +13,544 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "stage_BIA_POWER_KW_ENCL_MONTH_V",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE xCAMP.stage_BIA_POWER_KW_ENCL_MONTH_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PERIOD_MONTH",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PERIOD_MONTH",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CLIENT_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CLIENT_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LOC_PATH",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LOC_PATH",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVG_SQUARE_FEET_INUSE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AVG_SQUARE_FEET_INUSE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "IIC_ID",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "IIC_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BILL_CONTRACT_LINE_ID",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "BILL_CONTRACT_LINE_ID",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "OFIN_CUSTOMER_NUMBER",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OFIN_CUSTOMER_NUMBER",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AVG_KW_READING_VALUE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "AVG_KW_READING_VALUE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "KWH",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "KWH",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "BILL_TYPE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "BILL_TYPE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SF_BUILT",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "SF_BUILT",
+											"type": "Decimal"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BIA_POWER_KW_ENCL_MONTH_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "etlUpdate_PowerEnclMonth_PostUpdates",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "stage_BIA_POWER_KW_ENCL_MONTH_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[xCAMP].[etlUpdate_PowerEnclMonth_PostUpdates]"
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_dwStageOAC",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe xCAMP"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_CAMP')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Pipeline to run all CAMP related pipelines \ntest pull request and branch merge h",
+				"activities": [
+					{
+						"name": "pipe_BIA_ORGANIZATIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_ORGANIZATIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_FLEX_RWT_PROJECT",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_BIA_ORGANIZATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_FLEX_RWT_PROJECT",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_GL_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_stage_BIA_GL_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_GL_CAMP_CATEGORY_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_GL_CODE_COMBINATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_stage_BIA_POWER_KW_ENCL_MONTH_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "pipe_BIA_FLEX_RWT_PROJECT",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_GL_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_GL_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_stage_BIA_GL_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_GL_CODE_COMBINATIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_CODE_COMBINATIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_BIA_GL_CAMP_CATEGORY_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_CAMP_CATEGORY_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_POWER_KW_CONTRACT_LINE_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_oac_to_aoac_BIA_POWER_KW_CONTRACT_LINE_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "pipe_stage_BIA_POWER_KW_ENCL_MONTH_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "pipe_stage_BIA_POWER_KW_CONTRACT_LINE_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_oac_to_aoac_BIA_POWER_KW_ENCL_MONTH_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "Pipe CAMP"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedger')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "BIA_GL_HEADERS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "BIA_GL_ACCOUNTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_CODE_COMBINATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_BATCHES_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_DEPARTMENTS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_LOCATIONS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "BIA_GL_PERIODS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_HEADERS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_LINES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "BIA_GL_HEADERS_V",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_LINES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_ACCOUNTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_ACCOUNTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_CODE_COMBINATIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_CODE_COMBINATIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_BATCHES_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_BATCHES_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_DEPARTMENTS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_DEPARTMENTS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_LOCATIONS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_LOCATIONS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					},
+					{
+						"name": "BIA_GL_PERIODS_V",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "pipe_BIA_GL_PERIODS_V",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
+					}
+				],
+				"folder": {
+					"name": "pipe GeneralLedger"
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_GeneralLedgerJournals')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1118,7 +1656,9 @@
 				},
 				"annotations": []
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipe_xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V')]"
+			]
 		}
 	]
 }
