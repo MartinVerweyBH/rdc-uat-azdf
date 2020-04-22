@@ -22,16 +22,35 @@
 		"lsMATRIX_Postgres_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lsMATRIX_Postgres'"
-		},
-		"lsMRTG_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMRTG'"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_ACTUAL_COST_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC\nView: W_PROJ_TASK_ACTUAL_COST_F",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "W_PROJ_TASK_ACTUAL_COST_F"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_AMT_PAID_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -1640,7 +1659,7 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "link service to Oracle EBS on Site",
+				"description": "Link Service to EBS Production (On Prem)",
 				"annotations": [],
 				"type": "Oracle",
 				"typeProperties": {
@@ -1699,24 +1718,6 @@
 				"type": "PostgreSql",
 				"typeProperties": {
 					"connectionString": "[parameters('lsMATRIX_Postgres_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsMRTG')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to MRTG On Prem",
-				"annotations": [],
-				"type": "Oracle",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMRTG_connectionString')]"
 				},
 				"connectVia": {
 					"referenceName": "rdcir01",

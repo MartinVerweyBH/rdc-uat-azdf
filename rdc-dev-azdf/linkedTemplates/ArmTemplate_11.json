@@ -13,6 +13,29 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_AR_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nView : BIA_GL_LINES_AR_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_LINES_AR_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_R11V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -440,29 +463,6 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "BIA_PROJECTS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/oac_BIA_SALES_ORDER_HEADERS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: OAC",
-				"linkedServiceName": {
-					"referenceName": "lsOACPROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source on Cloud - OAC"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_SALES_ORDER_HEADERS_V"
 				}
 			},
 			"dependsOn": []

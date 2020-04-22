@@ -3360,6 +3360,170 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipe_BICS_PRICE_LIST_DETAIL_V')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "pipe_BICS_PRICE_LIST_DETAIL_V",
+				"activities": [
+					{
+						"name": "Copy BICS_PRICE_LIST_DETAIL_V",
+						"description": "Copy BICS_PRICE_LIST_DETAIL_V ",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "OracleSource",
+								"partitionOption": "None",
+								"queryTimeout": "02:00:00"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE OACPROD.BICS_PRICE_LIST_DETAIL_V",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "PRICE_LIST_NAME",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRICE_LIST_NAME",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PRICE_LIST_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LIST_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LIST_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LIST_END_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_CODE",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_CODE",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_DESCRIPTION",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_DESCRIPTION",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_UOM",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ITEM_UOM",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ITEM_PRICE",
+											"type": "Double"
+										},
+										"sink": {
+											"name": "ITEM_PRICE",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LINE_START_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LINE_START_DATE",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "PRICE_LINE_END_DATE",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "PRICE_LINE_END_DATE",
+											"type": "DateTime"
+										}
+									}
+								]
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ebs_BICS_PRICE_LIST_DETAIL_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "aoac_BICS_PRICE_LIST_DETAIL_V",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "OAC Pipelines"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ebs_BICS_PRICE_LIST_DETAIL_V')]",
+				"[concat(variables('factoryId'), '/datasets/aoac_BICS_PRICE_LIST_DETAIL_V')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipe_CAMP')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -48673,7 +48837,7 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "link service to Oracle EBS on Site",
+				"description": "Link Service to EBS Production (On Prem)",
 				"annotations": [],
 				"type": "Oracle",
 				"typeProperties": {
@@ -48853,22 +49017,7 @@
 				"description": "Full Trigger Last Day Of Month",
 				"annotations": [],
 				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_BIA_GL_HEADERS_V",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "pipe_BIA_GL_LINES_V",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
+				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
@@ -48890,10 +49039,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_HEADERS_V')]",
-				"[concat(variables('factoryId'), '/pipelines/pipe_BIA_GL_LINES_V')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/stage_trigger_min20_schedule')]",
@@ -48909,7 +49055,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 20,
-						"startTime": "2020-02-05T06:15:00.000Z",
+						"startTime": "2020-02-05T06:15:00Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -48951,7 +49097,7 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 1,
-						"startTime": "2020-01-27T06:00:00.000Z",
+						"startTime": "2020-01-27T06:00:00Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -48972,7 +49118,7 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 1,
-						"startTime": "2020-01-27T06:00:00.000Z",
+						"startTime": "2020-01-27T06:00:00Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -48993,7 +49139,7 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 4,
-						"startTime": "2020-01-27T03:00:00.000Z",
+						"startTime": "2020-01-27T03:00:00Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -49056,7 +49202,7 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 1,
-						"startTime": "2020-01-27T06:00:00.000Z",
+						"startTime": "2020-01-27T06:00:00Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -49077,7 +49223,7 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 1,
-						"startTime": "2020-01-27T06:00:00.000Z",
+						"startTime": "2020-01-27T06:00:00Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -49098,7 +49244,7 @@
 					"recurrence": {
 						"frequency": "Hour",
 						"interval": 1,
-						"startTime": "2020-01-27T06:00:00.000Z",
+						"startTime": "2020-01-27T06:00:00Z",
 						"timeZone": "UTC"
 					}
 				}
