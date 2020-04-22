@@ -229,6 +229,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "pipe PurchaseOrders"
+		},
 		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
