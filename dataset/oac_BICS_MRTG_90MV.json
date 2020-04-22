@@ -1,0 +1,21 @@
+{
+	"name": "oac_BICS_MRTG_90MV",
+	"properties": {
+		"description": "Source: OAC\n",
+		"linkedServiceName": {
+			"referenceName": "lsOACPROD",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source on Cloud - OAC"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OACPROD",
+			"table": "BICS_MRTG_90MV"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

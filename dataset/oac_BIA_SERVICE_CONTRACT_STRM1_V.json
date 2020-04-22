@@ -1,0 +1,21 @@
+{
+	"name": "oac_BIA_SERVICE_CONTRACT_STRM1_V",
+	"properties": {
+		"description": "Source: OAC\nView: BIA_SERVICE_CONTRACT_STRM1_V",
+		"linkedServiceName": {
+			"referenceName": "lsOACPROD",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source on Cloud - OAC"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OACPROD",
+			"table": "BIA_SERVICE_CONTRACT_STRM1_V"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

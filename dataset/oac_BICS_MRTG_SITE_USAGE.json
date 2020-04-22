@@ -1,0 +1,21 @@
+{
+	"name": "oac_BICS_MRTG_SITE_USAGE",
+	"properties": {
+		"description": "Source: OAC\nMaterialized View: BIA_GL_CAMP_BILLING_MV",
+		"linkedServiceName": {
+			"referenceName": "lsOACPROD",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source on Cloud - OAC"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OACPROD",
+			"table": "BICS_MRTG_SITE_USAGE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

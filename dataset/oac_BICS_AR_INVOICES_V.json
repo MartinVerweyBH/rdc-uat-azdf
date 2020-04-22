@@ -1,0 +1,21 @@
+{
+	"name": "oac_BICS_AR_INVOICES_V",
+	"properties": {
+		"description": "Source: OAC\nView: BICS_AR_INVOICES_V",
+		"linkedServiceName": {
+			"referenceName": "lsOACPROD",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source on Cloud - OAC"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OACPROD",
+			"table": "BICS_AR_INVOICES_V"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

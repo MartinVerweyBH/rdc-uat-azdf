@@ -1,0 +1,21 @@
+{
+	"name": "oac_BICS_AP_JOB_COSTS_V",
+	"properties": {
+		"description": "Source: OAC\nView: BICS_AP_JOB_COSTS_V",
+		"linkedServiceName": {
+			"referenceName": "lsOACPROD",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source on Cloud - OAC"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OACPROD",
+			"table": "BICS_AP_JOB_COSTS_V"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

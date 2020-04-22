@@ -1,0 +1,21 @@
+{
+	"name": "oac_BICS_REQUISITION_PROJECTS",
+	"properties": {
+		"description": "Source: OAC\nDestination: Azure OAC\nView: BICS_REQUISITION_PROJECTS",
+		"linkedServiceName": {
+			"referenceName": "lsOACPROD",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source on Cloud - OAC"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OACPROD",
+			"table": "BICS_REQUISITION_PROJECTS"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

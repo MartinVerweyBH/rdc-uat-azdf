@@ -1,0 +1,21 @@
+{
+	"name": "oac_W_PROJ_TASK_LABOR_SPENT_F",
+	"properties": {
+		"description": "Source: OAC\nView: W_PROJ_TASK_LABOR_SPENT_F",
+		"linkedServiceName": {
+			"referenceName": "lsOACPROD",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "OAC - Source on Cloud - OAC"
+		},
+		"annotations": [],
+		"type": "OracleTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OACPROD",
+			"table": "W_PROJ_TASK_LABOR_SPENT_F"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
