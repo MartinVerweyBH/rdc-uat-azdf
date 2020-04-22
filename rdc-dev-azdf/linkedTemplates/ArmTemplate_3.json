@@ -13,109 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_CODE_COMBINATIONS_R11V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Destination : Azure OAC\nSchema: OACPROD\nTable: BIA_GL_CODE_COMBINATIONS_R11V",
-				"linkedServiceName": {
-					"referenceName": "ls_dwStageOAC",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Destinations - AOAC"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "CODE_COMBINATION_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "CHART_OF_ACCOUNTS_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "ACCOUNT_TYPE",
-						"type": "varchar"
-					},
-					{
-						"name": "LAST_UPDATE_DATE",
-						"type": "datetime2",
-						"scale": 0
-					},
-					{
-						"name": "SEGMENT1",
-						"type": "varchar"
-					},
-					{
-						"name": "SEG1_DESC",
-						"type": "varchar"
-					},
-					{
-						"name": "SEGMENT2",
-						"type": "varchar"
-					},
-					{
-						"name": "SEG2_DESC",
-						"type": "varchar"
-					},
-					{
-						"name": "SEGMENT3",
-						"type": "varchar"
-					},
-					{
-						"name": "SEG3_DESC",
-						"type": "varchar"
-					},
-					{
-						"name": "SEGMENT4",
-						"type": "varchar"
-					},
-					{
-						"name": "SEG4_DESC",
-						"type": "varchar"
-					},
-					{
-						"name": "SEGMENT5",
-						"type": "varchar"
-					},
-					{
-						"name": "SEG5_DESC",
-						"type": "varchar"
-					},
-					{
-						"name": "DSYS_INSTANCE_ID",
-						"type": "decimal",
-						"precision": 15,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_PROCESS_ID",
-						"type": "decimal",
-						"precision": 12,
-						"scale": 0
-					},
-					{
-						"name": "DSYS_BATCH_ID",
-						"type": "decimal",
-						"precision": 30,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "OACPROD",
-					"table": "BIA_GL_CODE_COMBINATIONS_R11V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/aoac_BIA_GL_CODE_COMBINATIONS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2310,6 +2207,47 @@
 				"typeProperties": {
 					"schema": "OACPROD",
 					"table": "BIA_OAC_PAYABLES_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/aoac_BIA_OFFICE_TSQFT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Destination: Azure OAC\nSchema: OACPROD\nTable: BIA_OFFICE_TSQFT",
+				"linkedServiceName": {
+					"referenceName": "ls_dwStageOAC",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Destinations - AOAC"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "PERIOD_MONTH",
+						"type": "varchar"
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "WAREHOUSE",
+						"type": "varchar"
+					},
+					{
+						"name": "TOTAL_SQFT",
+						"type": "float",
+						"precision": 15
+					}
+				],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_OFFICE_TSQFT"
 				}
 			},
 			"dependsOn": []

@@ -13,11 +13,11 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_BUDGET_VERSIONS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_COST_DETAIL_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PA_BUDGET_VERSIONS_V",
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APPS.PBI_PROJ_COST_DETAIL_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -30,17 +30,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PA_BUDGET_VERSIONS_V"
+					"table": "PBI_PROJ_COST_DETAIL_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_PROJECT_CUSTOMERS')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_COST_MJE_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PA_PROJECT_CUSTOMERS",
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APPS.PBI_PROJ_COST_MJE_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -53,17 +53,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PA_PROJECT_CUSTOMERS"
+					"table": "PBI_PROJ_COST_MJE_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_TASKS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_ACTUAL_COST_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PA_TASKS_V",
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APPS.PBI_PROJ_TASK_ACTUAL_COST_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -76,17 +76,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PA_TASKS_V"
+					"table": "PBI_PROJ_TASK_ACTUAL_COST_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POR_APPROVAL_STATUS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_AMT_PAID_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_POR_APPROVAL_STATUS_V",
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APPS.ebs_PBI_PROJ_TASK_AMT_PAID_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -99,17 +99,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_POR_APPROVAL_STATUS_V"
+					"table": "PBI_PROJ_TASK_AMT_PAID_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_CAGE_MON_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_BGT_CHANGES_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_POWER_KW_CAGE_MON_V",
+				"description": "Source: EBS\nDestination:  Azure OAC\nView: APPS.PBI_PROJ_TASK_BGT_CHANGES_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -122,62 +122,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_POWER_KW_CAGE_MON_V"
+					"table": "PBI_PROJ_TASK_BGT_CHANGES_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_CONTRACT_LINE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_BOARD_APRVD_BGT')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_POWER_KW_CONTRACT_LINE_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS_PROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_ENCL_MONTH_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsEBS_PROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_POWER_KW_ENCL_MONTH_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_ACTION_HISTORY_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_ACTION_HISTORY_V",
+				"description": "Source: EBS\nDestination:  Azure OAC\nView: APPS.PBI_PROJ_TASK_BOARD_APRVD_BGT",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -190,17 +145,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_ACTION_HISTORY_V"
+					"table": "PBI_PROJ_TASK_BOARD_APRVD_BGT"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_BRDG')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_BUDGET_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_DISTRIBUTIONS_BRDG",
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APP.PBI_PROJ_TASK_BUDGET_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -213,17 +168,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_DISTRIBUTIONS_BRDG"
+					"table": "PBI_PROJ_TASK_BUDGET_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_CURRENT_BUDGET_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_DISTRIBUTIONS_V",
+				"description": "Source: EBS\nDestination: Azure EBS\nView: APPS.PBI_PROJ_TASK_CURRENT_BUDGET_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -236,17 +191,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_DISTRIBUTIONS_V"
+					"table": "PBI_PROJ_TASK_CURRENT_BUDGET_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_ARCHIVE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_D')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_HEADERS_ARCHIVE_V",
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APP.PBI_PROJ_TASK_D",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -259,17 +214,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_HEADERS_ARCHIVE_V"
+					"table": "PBI_PROJ_TASK_D"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PBI_PROJ_TASK_LABOR_SPENT_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_HEADERS_V",
+				"description": "Source: EBS\nDestination: Azure OAC\nView: APPSPBI_PROJ_TASK_LABOR_SPENT_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -282,17 +237,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_HEADERS_V"
+					"table": "PBI_PROJ_TASK_LABOR_SPENT_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_ARCHIVE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJECTED_DEPRN_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_LINES_ARCHIVE_V",
+				"description": "Source: EBS\nView: W_PROJECTED_DEPRN_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -305,17 +260,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_LINES_ARCHIVE_V"
+					"table": "PBI_PROJECTED_DEPRN_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_COMMITED_COST_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_LINES_V",
+				"description": "Source: EBS\nView: W_PROJ_COMMITED_COST_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -328,17 +283,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_LINES_V"
+					"table": "W_PROJ_COMMITED_COST_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_DIST_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_COST_DETAIL_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_REQUISITION_DIST_V",
+				"description": "Source: EBS\nView: W_PROJ_COST_DETAIL_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -351,17 +306,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_DIST_V"
+					"table": "PBI_PROJ_COST_DETAIL_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_HEADERS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_ACTUAL_COST_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nDestination:  Azure OAC\nView: APPS.BIA_PO_REQUISITION_HEADERS_V",
+				"description": "Source: EBS\nView: APPS.W_PROJ_TASK_ACTUAL_COST_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -374,17 +329,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_HEADERS_V"
+					"table": "PBI_PROJ_TASK_ACTUAL_COST_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_LINE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_AMT_PAID_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_REQUISITION_LINE_V",
+				"description": "Source: EBS\nView: W_PROJ_TASK_AMT_PAID_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -397,17 +352,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_LINE_V"
+					"table": "W_PROJ_TASK_AMT_PAID_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_SHIPMENTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BGT_CHANGES_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_SHIPMENTS_V",
+				"description": "Source: EBS\nView: W_PROJ_TASK_BGT_CHANGES_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -420,17 +375,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_SHIPMENTS_V"
+					"table": "PBI_PROJ_TASK_BGT_CHANGES_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LISTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BOARD_APRVD_BGT_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PRICE_LISTS_V",
+				"description": "Source: EBS\nView: W_PROJ_TASK_BOARD_APRVD_BGT_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -443,17 +398,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PRICE_LISTS_V"
+					"table": "PBI_PROJ_TASK_BOARD_APRVD_BGT"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LIST_ITEMS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_BUDGET_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PRICE_LIST_ITEMS_V",
+				"description": "Source: EBS\nView: W_PROJ_TASK_BUDGET_F",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -466,7 +421,53 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PRICE_LIST_ITEMS_V"
+					"table": "PBI_PROJ_TASK_BUDGET_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_CURRENT_BUDGET_F')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_CURRENT_BUDGET_F",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "PBI_PROJ_TASK_CURRENT_BUDGET_F"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_W_PROJ_TASK_D')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: W_PROJ_TASK_D",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "W_PROJ_TASK_D"
 				}
 			},
 			"dependsOn": []

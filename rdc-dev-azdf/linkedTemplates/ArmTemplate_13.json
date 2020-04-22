@@ -6,6 +6,26 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "rdc-dev-azdf"
+		},
+		"lsEBS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsEBS'"
+		},
+		"lsEBS_PROD_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsEBS_PROD'"
+		},
+		"lsEBS_UAT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsEBS_UAT'"
+		},
+		"lsMATRIX_Postgres_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsMATRIX_Postgres'"
+		},
+		"lsMRTG_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsMRTG'"
 		}
 	},
 	"variables": {
@@ -13,461 +33,1694 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_BRDG')]",
+			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_AMT_PAID_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_DISTRIBUTIONS_BRDG",
+				"description": "Source: OAC\nDestination: Azure OAC\nView: W_PROJ_TASK_AMT_PAID_F",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_DISTRIBUTIONS_BRDG"
+					"schema": "OACPROD",
+					"table": "W_PROJ_TASK_AMT_PAID_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_D')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_DISTRIBUTIONS_V",
+				"description": "Source: OAC\nDestination: Azure OAC\nView: W_PROJ_TASK_D",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_DISTRIBUTIONS_V"
+					"schema": "OACPROD",
+					"table": "W_PROJ_TASK_D"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_ARCHIVE_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_W_PROJ_TASK_LABOR_SPENT_F')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_HEADERS_ARCHIVE_V",
+				"description": "Source: OAC\nView: W_PROJ_TASK_LABOR_SPENT_F",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_HEADERS_ARCHIVE_V"
+					"schema": "OACPROD",
+					"table": "W_PROJ_TASK_LABOR_SPENT_F"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_FLEX_RWT_PROJECT')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_HEADERS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "FLEX_VALUE_SET_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "FLEX_VALUE",
+						"type": "varchar"
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "ENABLED_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "SUMMARY_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_HEADERS_V"
+					"schema": "xCAMP",
+					"table": "BIA_FLEX_RWT_PROJECT"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_ARCHIVE_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_GL_CAMP_CATEGORY_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_LINES_ARCHIVE_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "CAMP_ACCOUNT_CODE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RDC_ACCOUNT_CATEGORY",
+						"type": "varchar"
+					},
+					{
+						"name": "NTT_ACCOUNT_CATEGORY",
+						"type": "varchar"
+					},
+					{
+						"name": "ORIG_ACCOUNT_CATEGORY",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_LINES_ARCHIVE_V"
+					"schema": "xCAMP",
+					"table": "BIA_GL_CAMP_CATEGORY_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_GL_CODE_COMBINATIONS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_LINES_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "CODE_COMBINATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "CHART_OF_ACCOUNTS_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "ACCOUNT_TYPE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "SEGMENT1",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEG1_DESC",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEGMENT2",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEG2_DESC",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEGMENT3",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEG3_DESC",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEGMENT4",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEG4_DESC",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEGMENT5",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEG5_DESC",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEGMENT6",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEG6_DESC",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEGMENT7",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SEG7_DESC",
+						"type": "nvarchar"
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_LINES_V"
+					"schema": "xCAMP",
+					"table": "BIA_GL_CODE_COMBINATIONS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_DIST_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_GL_HEADERS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_REQUISITION_DIST_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "JE_HEADER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "JE_CATEGORY",
+						"type": "varchar"
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "ACTUAL_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "JE_BATCH_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "RUNNING_TOTAL_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_ACCOUNTED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_ACCOUNTED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_DIST_V"
+					"schema": "xCAMP",
+					"table": "BIA_GL_HEADERS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_HEADERS_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_GL_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nDestination:  Azure OAC\nView: APPS.BIA_PO_REQUISITION_HEADERS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "JE_HEADER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "JE_LINE_NUM",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LEDGER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "CODE_COMBINATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "ENTERED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ENTERED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNTED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNTED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_1",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_2",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_3",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_4",
+						"type": "varchar"
+					},
+					{
+						"name": "PARTY_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "PARTY_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "VENDOR_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "INVOICE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "JE_BATCH_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_HEADERS_V"
+					"schema": "xCAMP",
+					"table": "BIA_GL_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_LINE_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_ORGANIZATIONS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_REQUISITION_LINE_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "ORGANIZATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "BUSINESS_GROUP_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LOCATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LOCATION_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "COUNTRY",
+						"type": "varchar"
+					},
+					{
+						"name": "ADDRESS_LINE_1",
+						"type": "varchar"
+					},
+					{
+						"name": "ADDRESS_LINE_2",
+						"type": "varchar"
+					},
+					{
+						"name": "ADDRESS_LINE_3",
+						"type": "varchar"
+					},
+					{
+						"name": "REGION_1",
+						"type": "varchar"
+					},
+					{
+						"name": "REGION_2",
+						"type": "varchar"
+					},
+					{
+						"name": "REGION_3",
+						"type": "varchar"
+					},
+					{
+						"name": "POSTAL_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "TOWN_OR_CITY",
+						"type": "varchar"
+					},
+					{
+						"name": "DATE_FROM",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "DATE_TO",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "OBJECT_VERSION_NUMBER",
+						"type": "decimal",
+						"precision": 9,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_LINE_V"
+					"schema": "xCAMP",
+					"table": "BIA_ORGANIZATIONS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_SHIPMENTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_POWER_KW_CONTRACT_LINE_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_SHIPMENTS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "PERIOD_MONTH",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "SITE_USE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "OFIN_CUSTOMER_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "SERVICE_CONTRACT_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "ORDER_LINE_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "BILL_CONTRACT_LINE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ITEM_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "INVENTORY_ITEM_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BUILDING_LOCATION",
+						"type": "varchar"
+					},
+					{
+						"name": "ENCLOSURE_LOCATION_LIST",
+						"type": "varchar"
+					},
+					{
+						"name": "CURRENT_MAX_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "FINAL_MAX_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KW_USED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH_SMOOTHED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH_ACTUAL",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "SF_CONTRACTED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "SF_BUILT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ORGANIZATION_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "LOCATION_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BCL_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BILL_TYPE",
+						"type": "varchar"
+					},
+					{
+						"name": "RUN_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "PCT_ALLOCATION",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "CURRENT_MRC",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "FINAL_MRC",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "etlMerge",
+						"type": "varchar"
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PO_SHIPMENTS_V"
+					"schema": "xCAMP",
+					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LISTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_BIA_POWER_KW_ENCL_MONTH_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PRICE_LISTS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "PERIOD_MONTH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CLIENT_NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LOC_PATH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AVG_SQUARE_FEET_INUSE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "IIC_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "BILL_CONTRACT_LINE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "AVG_KW_READING_VALUE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "BILL_TYPE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "WAREHOUSE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SF_BUILT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ROOM",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ENCLOSURE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BILL_TYPE_REPORTING",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PRICE_LISTS_V"
+					"schema": "xCAMP",
+					"table": "BIA_POWER_KW_ENCL_MONTH_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LIST_ITEMS_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_GL_HEADERS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PRICE_LIST_ITEMS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "StageID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "JE_HEADER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "JE_CATEGORY",
+						"type": "varchar"
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "ACTUAL_FLAG",
+						"type": "varchar"
+					},
+					{
+						"name": "JE_BATCH_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "RUNNING_TOTAL_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_ACCOUNTED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "RUNNING_TOTAL_ACCOUNTED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PRICE_LIST_ITEMS_V"
+					"schema": "xCAMP",
+					"table": "stage_BIA_GL_HEADERS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PROJECTS_CIP_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_GL_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PROJECTS_CIP_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "StageID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "JE_HEADER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "JE_LINE_NUM",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "LEDGER_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "CODE_COMBINATION_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "varchar"
+					},
+					{
+						"name": "ENTERED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ENTERED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNTED_DR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ACCOUNTED_CR",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DESCRIPTION",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_1",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_2",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_3",
+						"type": "varchar"
+					},
+					{
+						"name": "REFERENCE_4",
+						"type": "varchar"
+					},
+					{
+						"name": "PARTY_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "PARTY_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "VENDOR_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "INVOICE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "LAST_UPDATE_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "JE_BATCH_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PROJECTS_CIP_V"
+					"schema": "xCAMP",
+					"table": "stage_BIA_GL_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PROJECTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_POWER_KW_CONTRACT_LINE_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PROJECTS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "StageID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "PERIOD_MONTH",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "PERIOD_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "SITE_USE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "OFIN_CUSTOMER_NAME",
+						"type": "varchar"
+					},
+					{
+						"name": "SERVICE_CONTRACT_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "ORDER_LINE_NUMBER",
+						"type": "varchar"
+					},
+					{
+						"name": "BILL_CONTRACT_LINE_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ITEM_CODE",
+						"type": "varchar"
+					},
+					{
+						"name": "INVENTORY_ITEM_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BUILDING_LOCATION",
+						"type": "varchar"
+					},
+					{
+						"name": "ENCLOSURE_LOCATION_LIST",
+						"type": "varchar"
+					},
+					{
+						"name": "CURRENT_MAX_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "FINAL_MAX_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KW_USED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH_SMOOTHED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH_ACTUAL",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "SF_CONTRACTED",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "SF_BUILT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ORGANIZATION_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "LOCATION_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BCL_ID",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BILL_TYPE",
+						"type": "varchar"
+					},
+					{
+						"name": "RUN_DATE",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "PCT_ALLOCATION",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "CURRENT_MRC",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "FINAL_MRC",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "etlMerge",
+						"type": "varchar"
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_PROJECTS_V"
+					"schema": "xCAMP",
+					"table": "stage_BIA_POWER_KW_CONTRACT_LINE_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_HEADERS_V')]",
+			"name": "[concat(parameters('factoryName'), '/xCAMP_stage_BIA_POWER_KW_ENCL_MONTH_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_QUOTE_HEADERS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "ls_dwStageOAC",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "Destination xCAMP"
 				},
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "StageID",
+						"type": "bigint",
+						"precision": 19
+					},
+					{
+						"name": "PERIOD_MONTH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CLIENT_NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "LOC_PATH",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AVG_SQUARE_FEET_INUSE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "IIC_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "BILL_CONTRACT_LINE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "OFIN_CUSTOMER_NUMBER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_INSTANCE_ID",
+						"type": "decimal",
+						"precision": 15,
+						"scale": 0
+					},
+					{
+						"name": "AVG_KW_READING_VALUE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "DSYS_PROCESS_ID",
+						"type": "decimal",
+						"precision": 12,
+						"scale": 0
+					},
+					{
+						"name": "BILL_TYPE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "DSYS_BATCH_ID",
+						"type": "decimal",
+						"precision": 30,
+						"scale": 0
+					},
+					{
+						"name": "WAREHOUSE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SF_BUILT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "ROOM",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ENCLOSURE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_AVG_KW",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "PCT_KWH",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "BILL_TYPE_REPORTING",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					},
+					{
+						"name": "TOTAL_SQFT_OFFICE_PCT",
+						"type": "decimal",
+						"precision": 32,
+						"scale": 10
+					}
+				],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_QUOTE_HEADERS_V"
+					"schema": "xCAMP",
+					"table": "stage_BIA_POWER_KW_ENCL_MONTH_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_LINES_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/lsEBS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_QUOTE_LINES_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
+				"description": "link service to Oracle EBS on Site",
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "Oracle",
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_QUOTE_LINES_V"
+					"connectionString": "[parameters('lsEBS_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "rdcir01",
+					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_LINES_V2')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/lsEBS_PROD')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_QUOTE_LINES_V2",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
+				"description": "Link Service to EBS On Prem Production (OFINPROD)",
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "Oracle",
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_QUOTE_LINES_V2"
+					"connectionString": "[parameters('lsEBS_PROD_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "rdcir01",
+					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_REV_CATEGORY_ITEMS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/lsEBS_UAT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_REV_CATEGORY_ITEMS_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
+				"description": "link service to Oracle EBS on Site UAT",
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "Oracle",
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_REV_CATEGORY_ITEMS_V"
+					"connectionString": "[parameters('lsEBS_UAT_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "rdcir01",
+					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_REV_CATEGORY_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/lsMATRIX_Postgres')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_REV_CATEGORY_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
+				"description": "lsMATRIX_Postgres",
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "PostgreSql",
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_REV_CATEGORY_V"
+					"connectionString": "[parameters('lsMATRIX_Postgres_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "rdcir01",
+					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_HEADERS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/lsMRTG')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_SALES_ORDER_HEADERS_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
+				"description": "Link Service to MRTG On Prem",
 				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
+				"type": "Oracle",
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_SALES_ORDER_HEADERS_V"
+					"connectionString": "[parameters('lsMRTG_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "rdcir01",
+					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": []

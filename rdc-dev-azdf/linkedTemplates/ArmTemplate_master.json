@@ -279,21 +279,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"lsEBS_connectionString": {
-						"value": "[parameters('lsEBS_connectionString')]"
-					},
-					"lsEBS_PROD_connectionString": {
-						"value": "[parameters('lsEBS_PROD_connectionString')]"
-					},
-					"lsEBS_UAT_connectionString": {
-						"value": "[parameters('lsEBS_UAT_connectionString')]"
-					},
-					"lsMATRIX_Postgres_connectionString": {
-						"value": "[parameters('lsMATRIX_Postgres_connectionString')]"
-					},
-					"lsMRTG_connectionString": {
-						"value": "[parameters('lsMRTG_connectionString')]"
 					}
 				}
 			},
@@ -314,21 +299,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"lsMRTG_Postgres_connectionString": {
-						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
-					},
-					"lsSFDC_password": {
-						"value": "[parameters('lsSFDC_password')]"
-					},
-					"lsSFDC_securityToken": {
-						"value": "[parameters('lsSFDC_securityToken')]"
-					},
-					"lsSFDC_properties_typeProperties_environmentUrl": {
-						"value": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]"
-					},
-					"lsSFDC_properties_typeProperties_username": {
-						"value": "[parameters('lsSFDC_properties_typeProperties_username')]"
 					}
 				}
 			},
@@ -389,6 +359,21 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsEBS_connectionString": {
+						"value": "[parameters('lsEBS_connectionString')]"
+					},
+					"lsEBS_PROD_connectionString": {
+						"value": "[parameters('lsEBS_PROD_connectionString')]"
+					},
+					"lsEBS_UAT_connectionString": {
+						"value": "[parameters('lsEBS_UAT_connectionString')]"
+					},
+					"lsMATRIX_Postgres_connectionString": {
+						"value": "[parameters('lsMATRIX_Postgres_connectionString')]"
+					},
+					"lsMRTG_connectionString": {
+						"value": "[parameters('lsMRTG_connectionString')]"
 					}
 				}
 			},
@@ -409,6 +394,21 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lsMRTG_Postgres_connectionString": {
+						"value": "[parameters('lsMRTG_Postgres_connectionString')]"
+					},
+					"lsSFDC_password": {
+						"value": "[parameters('lsSFDC_password')]"
+					},
+					"lsSFDC_securityToken": {
+						"value": "[parameters('lsSFDC_securityToken')]"
+					},
+					"lsSFDC_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]"
+					},
+					"lsSFDC_properties_typeProperties_username": {
+						"value": "[parameters('lsSFDC_properties_typeProperties_username')]"
 					}
 				}
 			},
@@ -474,6 +474,126 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_16')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_18",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_18.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_17')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_19",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_19.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_18')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_20",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_20.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_19')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_21",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_21.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_20')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_22",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_22.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_21')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_23",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_23.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_22')]"
 			]
 		}
 	]

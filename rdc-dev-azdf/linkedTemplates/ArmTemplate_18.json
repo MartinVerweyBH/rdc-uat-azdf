@@ -13,11 +13,11 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_BUDGET_VERSIONS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PROJECTS_CIP_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PA_BUDGET_VERSIONS_V",
+				"description": "Source: EBS\nView: BIA_PROJECTS_CIP_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -30,17 +30,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PA_BUDGET_VERSIONS_V"
+					"table": "BIA_PROJECTS_CIP_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_PROJECT_CUSTOMERS')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PROJECTS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PA_PROJECT_CUSTOMERS",
+				"description": "Source: EBS\nView: BIA_PROJECTS_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -53,17 +53,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PA_PROJECT_CUSTOMERS"
+					"table": "BIA_PROJECTS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PA_TASKS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_HEADERS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PA_TASKS_V",
+				"description": "Source: EBS\nView: BIA_QUOTE_HEADERS_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -76,17 +76,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PA_TASKS_V"
+					"table": "BIA_QUOTE_HEADERS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POR_APPROVAL_STATUS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_POR_APPROVAL_STATUS_V",
+				"description": "Source: EBS\nView: BIA_QUOTE_LINES_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -99,17 +99,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_POR_APPROVAL_STATUS_V"
+					"table": "BIA_QUOTE_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_CAGE_MON_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_QUOTE_LINES_V2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_POWER_KW_CAGE_MON_V",
+				"description": "Source: EBS\nView: BIA_QUOTE_LINES_V2",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -122,62 +122,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_POWER_KW_CAGE_MON_V"
+					"table": "BIA_QUOTE_LINES_V2"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_CONTRACT_LINE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_REV_CATEGORY_ITEMS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_POWER_KW_CONTRACT_LINE_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS_PROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_POWER_KW_CONTRACT_LINE_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_POWER_KW_ENCL_MONTH_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lsEBS_PROD",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_POWER_KW_ENCL_MONTH_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_ACTION_HISTORY_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_ACTION_HISTORY_V",
+				"description": "Source: EBS\nView: BIA_REV_CATEGORY_ITEMS_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -190,17 +145,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_ACTION_HISTORY_V"
+					"table": "BIA_REV_CATEGORY_ITEMS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_BRDG')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_REV_CATEGORY_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_DISTRIBUTIONS_BRDG",
+				"description": "Source: EBS\nView: BIA_REV_CATEGORY_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -213,17 +168,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_DISTRIBUTIONS_BRDG"
+					"table": "BIA_REV_CATEGORY_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_DISTRIBUTIONS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_HEADERS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_DISTRIBUTIONS_V",
+				"description": "Source: EBS\nView: BIA_SALES_ORDER_HEADERS_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -236,17 +191,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_DISTRIBUTIONS_V"
+					"table": "BIA_SALES_ORDER_HEADERS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_ARCHIVE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_HEADERS_ARCHIVE_V",
+				"description": "Source: EBS\nView: BIA_SALES_ORDER_LINES_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -259,17 +214,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_HEADERS_ARCHIVE_V"
+					"table": "BIA_SALES_ORDER_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_HEADERS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_LINES_V2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_HEADERS_V",
+				"description": "Source: EBS\nView: BIA_SALES_ORDER_LINES_V2",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -282,17 +237,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_HEADERS_V"
+					"table": "BIA_SALES_ORDER_LINES_V2"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_ARCHIVE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_ORDER_TYPES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_LINES_ARCHIVE_V",
+				"description": "Source: EBS\nView: BIA_SALES_ORDER_TYPES_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -305,17 +260,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_LINES_ARCHIVE_V"
+					"table": "BIA_SALES_ORDER_TYPES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_LINES_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SALES_TRANS_TYPES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_LINES_V",
+				"description": "Source: EBS\nView: BIA_SALES_TRANS_TYPES_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -328,17 +283,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_LINES_V"
+					"table": "BIA_SALES_TRANS_TYPES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_DIST_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACTS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_REQUISITION_DIST_V",
+				"description": "Source: EBS\nView: BIA_SERVICE_CONTRACTS_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -351,17 +306,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_DIST_V"
+					"table": "BIA_SERVICE_CONTRACTS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_HEADERS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACT_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nDestination:  Azure OAC\nView: APPS.BIA_PO_REQUISITION_HEADERS_V",
+				"description": "Source: EBS\nView: BIA_SERVICE_CONTRACT_LINES_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -374,17 +329,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_HEADERS_V"
+					"table": "BIA_SERVICE_CONTRACT_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_REQUISITION_LINE_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACT_STRM1_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_REQUISITION_LINE_V",
+				"description": "Source: EBS\nView: BIA_SERVICE_CONTRACT_STRM1_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -397,17 +352,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_REQUISITION_LINE_V"
+					"table": "BIA_SERVICE_CONTRACT_STRM1_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PO_SHIPMENTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SERVICE_CONTRACT_STRMS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PO_SHIPMENTS_V",
+				"description": "Source: EBS\nView: BIA_SERVICE_CONTRACT_STRMS_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -420,17 +375,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PO_SHIPMENTS_V"
+					"table": "BIA_SERVICE_CONTRACT_STRMS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LISTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SYSTEM_ITEMS_LINK_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PRICE_LISTS_V",
+				"description": "Source: EBS\nView: BIA_SYSTEM_ITEMS_LINK_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -443,17 +398,17 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PRICE_LISTS_V"
+					"table": "BIA_SYSTEM_ITEMS_LINK_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_PRICE_LIST_ITEMS_V')]",
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SYSTEM_ITEMS_ORG_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_PRICE_LIST_ITEMS_V",
+				"description": "Source: EBS\nView: BIA_SYSTEM_ITEMS_ORG_V",
 				"linkedServiceName": {
 					"referenceName": "lsEBS",
 					"type": "LinkedServiceReference"
@@ -466,7 +421,53 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "APPS",
-					"table": "BIA_PRICE_LIST_ITEMS_V"
+					"table": "BIA_SYSTEM_ITEMS_ORG_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_SYSTEM_ITEMS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BIA_SYSTEM_ITEMS_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BIA_SYSTEM_ITEMS_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ebs_BIA_VENDORS_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: EBS\nView: BIA_VENDORS_V",
+				"linkedServiceName": {
+					"referenceName": "lsEBS",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source On Prem - EBS"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "APPS",
+					"table": "BIA_VENDORS_V"
 				}
 			},
 			"dependsOn": []

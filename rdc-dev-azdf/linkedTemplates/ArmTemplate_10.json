@@ -6,26 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "rdc-dev-azdf"
-		},
-		"lsMRTG_Postgres_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'lsMRTG_Postgres'"
-		},
-		"lsSFDC_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'lsSFDC'"
-		},
-		"lsSFDC_securityToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'securityToken' of 'lsSFDC'"
-		},
-		"lsSFDC_properties_typeProperties_environmentUrl": {
-			"type": "string",
-			"defaultValue": "https://ragingwire.my.salesforce.com"
-		},
-		"lsSFDC_properties_typeProperties_username": {
-			"type": "string",
-			"defaultValue": "svc_powerbisfdc@ragingwire.com"
 		}
 	},
 	"variables": {
@@ -33,460 +13,460 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/lsMRTG_Postgres')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service to MRTG on Postgres (On Prem)",
-				"annotations": [],
-				"type": "PostgreSql",
-				"typeProperties": {
-					"connectionString": "[parameters('lsMRTG_Postgres_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/lsSFDC')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Link Service Sales Force Dot Com",
-				"annotations": [],
-				"type": "Salesforce",
-				"typeProperties": {
-					"environmentUrl": "[parameters('lsSFDC_properties_typeProperties_environmentUrl')]",
-					"username": "[parameters('lsSFDC_properties_typeProperties_username')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('lsSFDC_password')]"
-					},
-					"securityToken": {
-						"type": "SecureString",
-						"value": "[parameters('lsSFDC_securityToken')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "rdcir01",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AP_PAYMENTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AP_CHECKS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nDestination:  Azure OAC\nView:  APPS.BIA_AP_PAYMENTS_V",
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AP_CHECKS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_AP_PAYMENTS_V"
+					"schema": "OACPROD",
+					"table": "BIA_AP_CHECKS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AP_PO_DISTRIBUTION_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CASH_RECEIPTS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AP_PO_DISTRIBUTION_V",
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AR_CASH_RECEIPTS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_AP_PO_DISTRIBUTION_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_ADJUSTMENTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_ADJUSTMENTS_V",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_AR_ADJUSTMENTS_V"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CASH_RECEIPTS_V')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_CASH_RECEIPTS_V\n",
-				"linkedServiceName": {
-					"referenceName": "lsEBS",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "OAC - Source On Prem - EBS"
-				},
-				"annotations": [],
-				"type": "OracleTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_CASH_RECEIPTS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_INVOICE_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_INVOICE_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_CUSTOMER_INVOICE_V",
+				"description": "Source: OAC\nView : BIA_AR_CUSTOMER_INVOICE_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_CUSTOMER_INVOICE_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_RECEIPTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_RECEIPTS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_CUSTOMER_RECEIPTS_V",
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AR_CUSTOMER_RECEIPTS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_CUSTOMER_RECEIPTS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_DIST_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_DIST_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_CUSTOMER_TRX_DIST_V",
+				"description": "Source: OAC\nVIEW: BIA_AR_CUSTOMER_TRX_DIST_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_CUSTOMER_TRX_DIST_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_HDR_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_DIST_V2')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_CUSTOMER_TRX_HDR_V",
+				"description": "Source: OAC\nSchema: OACPROD\nTable: BIA_AR_CUSTOMER_TRX_DIST_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
+					"table": "BIA_AR_CUSTOMER_TRX_DIST_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_HDR_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AR_CUSTOMER_TRX_HDR_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
 					"table": "BIA_AR_CUSTOMER_TRX_HDR_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_LINES_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_CUSTOMER_TRX_LINES_V",
+				"description": "Source: OAC\nView: BIA_AR_CUSTOMER_TRX_LINES_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_CUSTOMER_TRX_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_CUSTOMER_TRX_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_CUSTOMER_TRX_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_CUSTOMER_TRX_V",
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AR_CUSTOMER_TRX_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_CUSTOMER_TRX_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_PAYMENT_SCHEDULES_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_PAYMENT_SCHEDULES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_AR_PAYMENT_SCHEDULES_V",
+				"description": "Source: OAC\nDestination: Azure OAC\nView: BIA_AR_PAYMENT_SCHEDULES_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_PAYMENT_SCHEDULES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_AR_RECEIVABLE_APPS_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_AR_RECEIVABLE_APPS_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: APPS.BIA_AR_RECEIVABLE_APPS_V",
+				"description": "Source: OAC\nView: BIA_AR_RECEIVABLE_APPS_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
+					"schema": "OACPROD",
 					"table": "BIA_AR_RECEIVABLE_APPS_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_CUSTOMER_ACCOUNTS_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_EXPENDITURE_ACCUM_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: APPS.BIA_CUST_SITES_V \nLViw: uv_BIA_CUSTOMER_ACCOUNTS_V",
+				"description": "OAC BIA_EXPENDITURE_ACCUM_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_CUST_SITES_V"
+					"schema": "OACPROD",
+					"table": "BIA_EXPENDITURE_ACCUM_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_CUSTOMER_REV_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_EXPENDITURE_DIST_LINES_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_CUSTOMER_REV_V",
+				"description": "Source: OAC\nView: BIA_EXPENDITURE_DIST_LINES_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_CUSTOMER_REV_V"
+					"schema": "OACPROD",
+					"table": "BIA_EXPENDITURE_DIST_LINES_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_CUST_SITES_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_BATCHES_R11V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_CUST_SITES_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_CUST_SITES_V"
+					"schema": "OACPROD",
+					"table": "BIA_GL_BATCHES_R11V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EMPLOYEES_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_BILLING_MV')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_EMPLOYEES_V",
+				"description": "Source: OAC\nMaterialized View: BIA_GL_CAMP_BILLING_MV",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_EMPLOYEES_V"
+					"schema": "OACPROD",
+					"table": "BIA_GL_CAMP_BILLING_MV"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EMPLOYEE_LICENSES_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_BILLING_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_EMPLOYEE_LICENSES_V",
+				"description": "Source: OAC\n",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_EMPLOYEE_LICENSES_V"
+					"schema": "OACPROD",
+					"table": "BIA_GL_CAMP_BILLING_V"
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ebs_BIA_EMPLOYEE_PERSONNEL_V')]",
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_CAMP_ENCL_BILLING_V')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Source: EBS\nView: BIA_EMPLOYEE_PERSONNEL_V",
+				"description": "Source: OAC\nVIEW: OACPROD.BIA_GL_CAMP_ENCL_BILLING_V",
 				"linkedServiceName": {
-					"referenceName": "lsEBS",
+					"referenceName": "lsOACPROD",
 					"type": "LinkedServiceReference"
 				},
 				"folder": {
-					"name": "OAC - Source On Prem - EBS"
+					"name": "OAC - Source on Cloud - OAC"
 				},
 				"annotations": [],
 				"type": "OracleTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "APPS",
-					"table": "BIA_EMPLOYEE_PERSONNEL_V"
+					"schema": "OACPROD",
+					"table": "BIA_GL_CAMP_ENCL_BILLING_V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_HEADERS_R11V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_HEADERS_R11V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_JOURNALS_R11V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nDestination: Azure OAC",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_JOURNALS_R11V"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/oac_BIA_GL_LINES_AR_V')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Source: OAC\nView : BIA_GL_LINES_AR_V",
+				"linkedServiceName": {
+					"referenceName": "lsOACPROD",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "OAC - Source on Cloud - OAC"
+				},
+				"annotations": [],
+				"type": "OracleTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "OACPROD",
+					"table": "BIA_GL_LINES_AR_V"
 				}
 			},
 			"dependsOn": []
