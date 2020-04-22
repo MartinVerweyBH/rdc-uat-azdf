@@ -23812,7 +23812,7 @@
 			"properties": {
 				"description": "stage_trigger_min20_schedule",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23833,7 +23833,7 @@
 			"properties": {
 				"description": "stage_trigger_min60_schedule",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23854,7 +23854,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 1 Hour",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23875,7 +23875,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 2 Hours",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23896,7 +23896,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 4 Hours",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23917,7 +23917,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 6 Hours",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23938,7 +23938,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 24 Hours",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23959,7 +23959,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 15 Minutes",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -23980,7 +23980,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 20 Minutes",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
@@ -24001,7 +24001,7 @@
 			"properties": {
 				"description": "Scheduled Trigger Every 30 Minutes",
 				"annotations": [],
-				"runtimeState": "Started",
+				"runtimeState": "Stopped",
 				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
