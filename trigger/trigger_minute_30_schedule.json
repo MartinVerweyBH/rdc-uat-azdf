@@ -3,21 +3,8 @@
 	"properties": {
 		"description": "Scheduled Trigger Every 30 Minutes",
 		"annotations": [],
-		"runtimeState": "Started",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BIA_AP_INVOICE_HEADERS_V",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pipe_BICS_AP_JOB_COSTS_V",
-					"type": "PipelineReference"
-				}
-			}
-		],
+		"runtimeState": "Stopped",
+		"pipelines": [],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
