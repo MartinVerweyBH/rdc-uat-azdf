@@ -1,5 +1,5 @@
 {
-	"name": "ebs2aoac_GeneralLedger",
+	"name": "pipe_GeneralLedger",
 	"properties": {
 		"activities": [
 			{
@@ -152,7 +152,7 @@
 			}
 		],
 		"folder": {
-			"name": "EBS 2 AzureOAC Pipelines"
+			"name": "pipe GeneralLedger"
 		},
 		"annotations": []
 	},
