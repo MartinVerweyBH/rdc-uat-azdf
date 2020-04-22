@@ -153,6 +153,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "Pipe CAMP"
+		},
 		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
