@@ -1,7 +1,7 @@
 {
 	"name": "pipe_oac_to_aoac_BIA_GL_CAMP_ENCL_BILLING_V",
 	"properties": {
-		"description": "NOTE: Will sunc from OAC untill ES changed the Source ETL (Postgress changes) - Show Stopper!\nSource: OAC\nDestination: Azure OAC\nBIA_GL_CAMP_ENCL_BILLING_V",
+		"description": "NOTE: Will sunc from OAC untill ES changed the Source ETL (Postgress changes) - Show Stopper! \nSource: OAC\nDestination: Azure OAC\nBIA_GL_CAMP_ENCL_BILLING_V",
 		"activities": [
 			{
 				"name": "Copy BIA_GL_CAMP_ENCL_BILLING_V",
